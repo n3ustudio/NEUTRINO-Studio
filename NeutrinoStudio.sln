@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Shell", "NeutrinoStudio.Shell\NeutrinoStudio.Shell.csproj", "{1BBF60DE-D244-40D3-AE7F-BEE2C82C3BFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BBF60DE-D244-40D3-AE7F-BEE2C82C3BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBF60DE-D244-40D3-AE7F-BEE2C82C3BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBF60DE-D244-40D3-AE7F-BEE2C82C3BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBF60DE-D244-40D3-AE7F-BEE2C82C3BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B46F1A-0346-4682-8C41-15380FF724C0}
+	EndGlobalSection
+EndGlobal
