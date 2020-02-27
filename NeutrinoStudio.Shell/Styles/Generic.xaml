@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Text Styles-->
+    <Style x:Key="NeuShellHeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="96,0,0,0"/>
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Key="NeuShellTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0,12"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+</ResourceDictionary>
