@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
-             Background="Transparent"
+             Background="{DynamicResource ThemeBrushKey}"
              Foreground="White"
              SnapsToDevicePixels="True"
              d:DesignHeight="720" d:DesignWidth="1280">
