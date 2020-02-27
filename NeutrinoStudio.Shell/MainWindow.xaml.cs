@@ -23,6 +23,8 @@ namespace NeutrinoStudio.Shell
         public MainWindow()
         {
             InitializeComponent();
+
+            this.MouseLeftButtonDown += (sender, e) => this.DragMove();
         }
     }
 }
