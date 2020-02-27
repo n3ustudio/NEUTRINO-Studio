@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:NeutrinoStudio.Shell"
         xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome"
         xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
+        xmlns:yDock="clr-namespace:YDock;assembly=YDock"
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         Background="{DynamicResource ThemeBrushKey}"
@@ -53,13 +54,7 @@
             </Grid>
         </Border>
 
-        <ScrollViewer Grid.Row="1"
-					  HorizontalScrollBarVisibility="Disabled"
-					  VerticalScrollBarVisibility="Auto">
-            <StackPanel HorizontalAlignment="Center"
-						VerticalAlignment="Center">
-            </StackPanel>
-        </ScrollViewer>
+        <yDock:DockManager Grid.Row="1" x:Name="DockManager"/>
 
         <Grid Grid.Row="2"
 			  Background="{DynamicResource AccentBrushKey}">
