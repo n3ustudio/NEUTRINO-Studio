@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NeutrinoStudio.Shell.Views.Docks;
 using NeutrinoStudio.Shell.Views.Documents;
 using YDock;
 using YDock.Enum;
@@ -31,18 +32,22 @@ namespace NeutrinoStudio.Shell
             Loaded += OnLoaded;
 
             welcomeView = new WelcomeView();
+            logView = new LogView();
             DockManager.RegisterDocument(welcomeView);
+            DockManager.RegisterDock(logView, DockSide.Bottom);
         }
 
         #region Views
 
         private WelcomeView welcomeView;
+        private LogView logView;
 
         #endregion
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             welcomeView.DockControl.Show();
+            logView.DockControl.Show();
         }
     }
 }
