@@ -8,7 +8,7 @@ namespace NeutrinoStudio.Shell.Helpers
 {
     public static class LogHelper
     {
-        public static readonly log4net.ILog logger = log4net.LogManager.GetLogger("logger");
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger("logger");
 
         public static void Log(LogType type, string message) => Log(new LogMessage(type, message));
 
