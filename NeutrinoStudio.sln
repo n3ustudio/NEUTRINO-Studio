@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YDock", "YDock\YDock\YDock.
 		{0AF0B9FF-D981-4D0F-A41F-C3AB6FE2F16D} = {0AF0B9FF-D981-4D0F-A41F-C3AB6FE2F16D}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Utilities", "NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj", "{0354D973-EC37-4E94-941A-A12DD2629E96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,18 @@ Global
 		{2BD226E4-B931-4B46-A6C3-D15270AD0565}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2BD226E4-B931-4B46-A6C3-D15270AD0565}.Release|x86.ActiveCfg = Release|x86
 		{2BD226E4-B931-4B46-A6C3-D15270AD0565}.Release|x86.Build.0 = Release|x86
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Debug|x86.Build.0 = Debug|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release RETRO|Any CPU.ActiveCfg = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release RETRO|Any CPU.Build.0 = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release RETRO|x86.ActiveCfg = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release RETRO|x86.Build.0 = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release|x86.ActiveCfg = Release|Any CPU
+		{0354D973-EC37-4E94-941A-A12DD2629E96}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
