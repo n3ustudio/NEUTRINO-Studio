@@ -81,7 +81,7 @@ namespace NeutrinoStudio.Shell.Helpers
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private static Dictionary<LogType, string> _logTypeDictionary = new Dictionary<LogType, string>
+        private static readonly Dictionary<LogType, string> LogTypeDictionary = new Dictionary<LogType, string>
         {
             { LogType.Debug, "调试" },
             { LogType.Info, "信息" },
@@ -92,9 +92,7 @@ namespace NeutrinoStudio.Shell.Helpers
 
         public static string GetLogType(LogType logType)
         {
-            string value;
-            if (_logTypeDictionary.TryGetValue(logType, out value)) return value;
-            return "未知";
+            return LogTypeDictionary.TryGetValue(logType, out var value) ? value : "未知";
         }
     }
 
