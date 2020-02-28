@@ -155,6 +155,10 @@
       <Project>{7f898b3a-da17-4cab-b387-5629b5faca49}</Project>
       <Name>RetroRadiance</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj">
+      <Project>{0354d973-ec37-4e94-941a-a12dd2629e96}</Project>
+      <Name>NeutrinoStudio.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YDock\YDock\YDock.csproj">
       <Project>{2bd226e4-b931-4b46-a6c3-d15270ad0565}</Project>
       <Name>YDock</Name>

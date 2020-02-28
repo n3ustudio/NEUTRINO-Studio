@@ -50,7 +50,8 @@ namespace NeutrinoStudio.Shell
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             welcomeView.DockControl.Show();
-            logView.DockControl.Show();
+            logView.DockControl.Show(false);
+            //debugView.DockControl.Show();
         }
 
         private void MenuItem_Exit_OnClick(object sender, RoutedEventArgs e)

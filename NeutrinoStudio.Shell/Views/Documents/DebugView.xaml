@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
+             xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -27,6 +28,7 @@
             <StackPanel HorizontalAlignment="Left">
                 <TextBlock Text="触发器" Style="{DynamicResource NeuShellTitleTextStyle}"/>
                 <Button Content="写入日志" Margin="0,6" Click="ButtonBase_OnClick"/>
+                <u:Icon Type="Account"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Grid.Column="1">
                 <TextBlock Text="性能" Style="{DynamicResource NeuShellTitleTextStyle}"/>
