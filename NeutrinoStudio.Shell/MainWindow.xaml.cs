@@ -51,7 +51,7 @@ namespace NeutrinoStudio.Shell
         {
             welcomeView.DockControl.Show();
             logView.DockControl.Show(false);
-            //debugView.DockControl.Show();
+            debugView.DockControl.Show(false);
         }
 
         private void MenuItem_Exit_OnClick(object sender, RoutedEventArgs e)
