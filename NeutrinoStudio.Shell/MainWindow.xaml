@@ -55,7 +55,18 @@
             </Grid>
         </Border>
 
-        <yDock:DockManager Grid.Row="1" x:Name="DockManager"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Menu>
+                <MenuItem Header="文件(_F)">
+                    <MenuItem Header="退出(_X)" Click="MenuItem_Exit_OnClick"/>
+                </MenuItem>
+            </Menu>
+            <yDock:DockManager Grid.Row="1" x:Name="DockManager" Margin="0,0,0,-0.5"/>
+        </Grid>
 
         <Grid Grid.Row="2"
 			  Background="{DynamicResource AccentBrushKey}">
