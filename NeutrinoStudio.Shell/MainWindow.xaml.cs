@@ -33,14 +33,17 @@ namespace NeutrinoStudio.Shell
 
             welcomeView = new WelcomeView();
             logView = new LogView();
+            debugView = new DebugView();
             DockManager.RegisterDocument(welcomeView);
             DockManager.RegisterDock(logView, DockSide.Bottom);
+            DockManager.RegisterDocument(debugView);
         }
 
         #region Views
 
         private WelcomeView welcomeView;
         private LogView logView;
+        private DebugView debugView;
 
         #endregion
 
@@ -48,6 +51,11 @@ namespace NeutrinoStudio.Shell
         {
             welcomeView.DockControl.Show();
             logView.DockControl.Show();
+        }
+
+        private void MenuItem_Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(0);
         }
     }
 }
