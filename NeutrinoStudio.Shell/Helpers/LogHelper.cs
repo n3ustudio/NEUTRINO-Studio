@@ -1,41 +1,101 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NeutrinoStudio.Shell.Helpers
 {
-    public static class LogHelper
+    /// <summary>
+    /// LogHelper for NEUShell.
+    /// </summary>
+    public sealed class LogHelper : INotifyPropertyChanged
     {
-        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger("logger");
-
-        public static void Log(LogType type, string message) => Log(new LogMessage(type, message));
-
-        public static void Log(LogMessage logMessage)
+        /// <summary>
+        /// Internal initialize.
+        /// </summary>
+        private LogHelper()
         {
-            LogEvent?.Invoke(logMessage);
+            _logger = log4net.LogManager.GetLogger("logger");
+            _logList = new List<LogMessage>();
+        }
+
+        /// <summary>
+        /// Get the current LogHelper.
+        /// </summary>
+        public static LogHelper Current => _current ?? (_current = new LogHelper());
+
+        /// <summary>
+        /// The current LogHelper.
+        /// </summary>
+        private static LogHelper _current;
+
+        /// <summary>
+        /// The core logger.
+        /// </summary>
+        private readonly log4net.ILog _logger;
+
+        /// <summary>
+        /// Get the log list.
+        /// </summary>
+        public List<LogMessage> LogList => _logList ?? (_logList = new List<LogMessage>());
+
+        /// <summary>
+        /// The log list.
+        /// </summary>
+        private List<LogMessage> _logList;
+
+        public void Log(LogType type, string message) => Log(new LogMessage(type, message));
+
+        public void Log(LogMessage logMessage)
+        {
+            OnPropertyChanged(logMessage);
             switch (logMessage.Type)
             {
                 case LogType.Warn:
-                    logger.Warn(logMessage.Message);
+                    _logger.Warn(logMessage.Message);
                     break;
                 case LogType.Error:
-                    logger.Error(logMessage.Message);
+                    _logger.Error(logMessage.Message);
                     break;
                 case LogType.Fatal:
-                    logger.Fatal(logMessage.Message);
+                    _logger.Fatal(logMessage.Message);
                     break;
                 case LogType.Debug:
-                    logger.Debug(logMessage.Message);
+                    _logger.Debug(logMessage.Message);
                     break;
                 default:
-                    logger.Info(logMessage.Message);
+                    _logger.Info(logMessage.Message);
                     break;
             }
         }
 
-        public static event LogEventHandler LogEvent;
+        public event LogEventHandler LogEvent;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(LogMessage logMessage, [CallerMemberName] string propertyName = null)
+        {
+            LogEvent?.Invoke(logMessage);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private static Dictionary<LogType, string> _logTypeDictionary = new Dictionary<LogType, string>
+        {
+            { LogType.Debug, "调试" },
+            { LogType.Info, "信息" },
+            { LogType.Warn, "警告" },
+            { LogType.Error, "错误" },
+            { LogType.Fatal, "灾难性错误" }
+        };
+
+        public static string GetLogType(LogType logType)
+        {
+            string value;
+            if (_logTypeDictionary.TryGetValue(logType, out value)) return value;
+            return "未知";
+        }
     }
 
     public enum LogType
@@ -49,8 +109,10 @@ namespace NeutrinoStudio.Shell.Helpers
 
     public class LogMessage
     {
-        public LogType Type { get; set; }
-        public string Message { get; set; }
+        public LogType Type { get; }
+        public string Message { get; }
+
+        public string DisplayMessage => $"[{LogHelper.GetLogType(Type)}]{Message}";
 
         public LogMessage(LogType type, string message)
         {

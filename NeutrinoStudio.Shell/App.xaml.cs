@@ -20,7 +20,7 @@ namespace NeutrinoStudio.Shell
         public App()
         {
             // Initialize
-            LogHelper.Log(LogType.Info, $"NEUTRINO Studio {Assembly.GetExecutingAssembly().GetName().Version}");
+            LogHelper.Current.Log(LogType.Info, $"NEUTRINO Studio {Assembly.GetExecutingAssembly().GetName().Version}");
 
             // Show Window
             if (MainWindow is null) MainWindow = new MainWindow();
