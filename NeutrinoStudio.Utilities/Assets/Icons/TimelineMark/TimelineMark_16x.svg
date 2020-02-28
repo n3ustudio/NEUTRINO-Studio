@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.icon_x002D_canvas_x002D_transparent{opacity:0;fill:#F6F6F6;}
+	.icon_x002D_vs_x002D_out{fill:#F6F6F6;}
+	.vs_x002D_control_x002D_glyph_x002D_grey{fill:#717171;}
+</style>
+<g id="canvas">
+	<path class="icon_x002D_canvas_x002D_transparent" d="M16,16H0V0h16V16z"/>
+</g>
+<g id="outline">
+	<path class="icon_x002D_vs_x002D_out" d="M0,8l8-8l8,8l-8,8L0,8z"/>
+</g>
+<g id="iconBg">
+	<path class="vs_x002D_control_x002D_glyph_x002D_grey" d="M1.414,8L8,1.414L14.586,8L8,14.586L1.414,8z"/>
+</g>
+</svg>
