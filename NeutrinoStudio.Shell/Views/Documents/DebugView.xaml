@@ -11,28 +11,33 @@
              Foreground="White"
              SnapsToDevicePixels="True"
              d:DesignHeight="720" d:DesignWidth="1280">
+    <ScrollViewer>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid>
-            <TextBlock Text="调试面板" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <TextBlock Text="调试面板" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
+            </Grid>
+            <Grid Margin="96,24" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="触发器" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                    <Button Content="写入日志" Margin="0,6" Click="ButtonBase_OnClick" HorizontalAlignment="Left"/>
+                    <TextBlock Text="动态图标" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                    <u:Icon x:Name="TestIcon" Type="Account" Margin="0,6"/>
+                    <ListView ItemsSource="{Binding Path=iconList}" SelectionChanged="IconSelector_OnSelectionChanged" Margin="0,6"
+                              SelectedItem="Account" Height="400" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="性能" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                </StackPanel>
+            </Grid>
         </Grid>
-        <Grid Margin="96,24" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackPanel HorizontalAlignment="Left">
-                <TextBlock Text="触发器" Style="{DynamicResource NeuShellTitleTextStyle}"/>
-                <Button Content="写入日志" Margin="0,6" Click="ButtonBase_OnClick"/>
-                <u:Icon Type="Account"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Grid.Column="1">
-                <TextBlock Text="性能" Style="{DynamicResource NeuShellTitleTextStyle}"/>
-            </StackPanel>
-        </Grid>
-    </Grid>
+    </ScrollViewer>
 </UserControl>

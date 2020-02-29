@@ -25,7 +25,14 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public DebugView()
         {
             InitializeComponent();
+            DataContext = this;
         }
+
+        #region DataContext
+
+        public List<string> iconList => Utilities.Controls.Icon.IconList;
+
+        #endregion
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -35,5 +42,11 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public IDockControl DockControl { get; set; }
         public string Header => "调试面板";
         public ImageSource Icon => null;
+
+        private void IconSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView box = sender as ListView;
+            TestIcon.Type = box?.SelectedItem as string;
+        }
     }
 }
