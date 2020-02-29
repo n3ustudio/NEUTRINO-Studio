@@ -1,6 +1,6 @@
 [submodule "MetroRadiance"]
 	path = MetroRadiance
-	url = https://github.com/Afanyiyu/MetroRadiance.git
+	url = https://github.com/n3ustudio/MetroRadiance.git
 [submodule "YDock"]
 	path = YDock
-	url = https://github.com/yzylovepmn/YDock.git
+	url = https://github.com/n3ustudio/YDock.git
