@@ -43,6 +43,11 @@ namespace NeutrinoStudio.Shell.Helpers
         public List<LogMessage> LogList => _logList ?? (_logList = new List<LogMessage>());
 
         /// <summary>
+        /// Get the static log list.
+        /// </summary>
+        public static List<LogMessage> StaticLogList => Current.LogList;
+
+        /// <summary>
         /// The log list.
         /// </summary>
         private List<LogMessage> _logList;
@@ -108,7 +113,10 @@ namespace NeutrinoStudio.Shell.Helpers
     public class LogMessage
     {
         public LogType Type { get; }
+
         public string Message { get; }
+
+        public string DisplayType => LogHelper.GetLogType(Type);
 
         public string DisplayMessage => $"[{LogHelper.GetLogType(Type)}]{Message}";
 

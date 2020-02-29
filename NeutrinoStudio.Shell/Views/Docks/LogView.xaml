@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Docks"
+             xmlns:helpers="clr-namespace:NeutrinoStudio.Shell.Helpers"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -21,6 +22,14 @@
                 <ComboBoxItem Content="信息"/>
             </ComboBox>
         </StackPanel>
-        <Grid Grid.Row="1" Margin="12" Background="{DynamicResource BackgroundBrushKey}"></Grid>
+        <ListView Grid.Row="1" Margin="12" Background="{DynamicResource BackgroundBrushKey}"
+                  ItemsSource="{x:Static helpers:LogHelper.StaticLogList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="类型" DisplayMemberBinding="{Binding DisplayType}"/>
+                    <GridViewColumn Header="信息" DisplayMemberBinding="{Binding Message}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
