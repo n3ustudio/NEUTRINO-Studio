@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,7 +12,7 @@ namespace NeutrinoStudio.Shell.Helpers
     /// <summary>
     /// LogHelper for NEUShell.
     /// </summary>
-    public sealed class LogHelper : INotifyPropertyChanged
+    public sealed class LogHelper
     {
         /// <summary>
         /// Internal initialize.
@@ -19,7 +20,7 @@ namespace NeutrinoStudio.Shell.Helpers
         private LogHelper()
         {
             _logger = log4net.LogManager.GetLogger("logger");
-            _logList = new List<LogMessage>();
+            _logList = new ObservableCollection<LogMessage>();
         }
 
         /// <summary>
@@ -40,22 +41,18 @@ namespace NeutrinoStudio.Shell.Helpers
         /// <summary>
         /// Get the log list.
         /// </summary>
-        public List<LogMessage> LogList => _logList ?? (_logList = new List<LogMessage>());
-
-        /// <summary>
-        /// Get the static log list.
-        /// </summary>
-        public static List<LogMessage> StaticLogList => Current.LogList;
+        public ObservableCollection<LogMessage> LogList => _logList ?? (_logList = new ObservableCollection<LogMessage>());
 
         /// <summary>
         /// The log list.
         /// </summary>
-        private List<LogMessage> _logList;
+        private ObservableCollection<LogMessage> _logList;
 
         public void Log(LogType type, string message) => Log(new LogMessage(type, message));
 
         public void Log(LogMessage logMessage)
         {
+            _logList.Add(logMessage);
             OnPropertyChanged(logMessage);
             switch (logMessage.Type)
             {
@@ -78,12 +75,10 @@ namespace NeutrinoStudio.Shell.Helpers
         }
 
         public event LogEventHandler LogEvent;
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(LogMessage logMessage, [CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged(LogMessage logMessage)
         {
             LogEvent?.Invoke(logMessage);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private static readonly Dictionary<LogType, string> LogTypeDictionary = new Dictionary<LogType, string>

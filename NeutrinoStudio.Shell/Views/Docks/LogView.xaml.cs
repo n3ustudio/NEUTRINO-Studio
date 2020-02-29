@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NeutrinoStudio.Shell.Helpers;
 using YDock.Interface;
 
 namespace NeutrinoStudio.Shell.Views.Docks
@@ -29,5 +30,13 @@ namespace NeutrinoStudio.Shell.Views.Docks
         public IDockControl DockControl { get; set; }
         public string Header => "日志";
         public ImageSource Icon => null;
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView view = sender as ListView;
+            if (view?.SelectedItem is null) return;
+            Clipboard.SetText((view.SelectedItem as LogMessage)?.DisplayMessage, TextDataFormat.UnicodeText);
+            view.SelectedIndex = -1;
+        }
     }
 }

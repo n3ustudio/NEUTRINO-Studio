@@ -17,13 +17,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="12">
-            <TextBlock Text="显示级别：" VerticalAlignment="Center" Margin="3,0"/>
-            <ComboBox VerticalAlignment="Center" Margin="3,0" SelectedIndex="0">
+            <TextBlock Text="轻敲消息即可复制到剪切板。" VerticalAlignment="Center" Margin="3,0"/>
+            <!--<ComboBox VerticalAlignment="Center" Margin="3,0" SelectedIndex="0">
                 <ComboBoxItem Content="信息"/>
-            </ComboBox>
+            </ComboBox>-->
         </StackPanel>
-        <ListView Grid.Row="1" Margin="12" Background="{DynamicResource BackgroundBrushKey}"
-                  ItemsSource="{x:Static helpers:LogHelper.StaticLogList}">
+        <ListView Grid.Row="1" Margin="12" Background="{DynamicResource BackgroundBrushKey}" Foreground="White"
+                  DataContext="{Binding Source={x:Static helpers:LogHelper.Current}}" ItemsSource="{Binding LogList}"
+                  SelectionChanged="Selector_OnSelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="类型" DisplayMemberBinding="{Binding DisplayType}"/>
