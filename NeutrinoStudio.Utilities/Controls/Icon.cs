@@ -28,15 +28,22 @@ namespace NeutrinoStudio.Utilities.Controls
 
         private static void TypePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            Icon icon = ((Icon) d);
-            if (string.IsNullOrEmpty(icon.Type)) return;
-            using (FileStream fs =
-                new FileStream(
-                    Path.Combine(Environment.CurrentDirectory, $"Assets/Icons/{icon.Type}/{icon.Type}_16x.xaml"),
-                    FileMode.Open))
+            try
             {
-                icon.CurrentChild = XamlReader.Load(fs) as DependencyObject;
-                icon.Content = icon.CurrentChild;
+                Icon icon = ((Icon) d);
+                if (string.IsNullOrEmpty(icon.Type)) return;
+                using (FileStream fs =
+                    new FileStream(
+                        Path.Combine(Environment.CurrentDirectory, $"Assets/Icons/{icon.Type}/{icon.Type}_16x.xaml"),
+                        FileMode.Open))
+                {
+                    icon.CurrentChild = XamlReader.Load(fs) as DependencyObject;
+                    icon.Content = icon.CurrentChild;
+                }
+            }
+            catch
+            {
+                // ignored
             }
         }
 
@@ -56,9 +63,22 @@ namespace NeutrinoStudio.Utilities.Controls
 
         private static void SizePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            Icon icon = ((Icon)d);
-            icon.SetValue(RenderTransformProperty,
-                new TransformGroup() {Children = {new ScaleTransform(icon.Size, icon.Size)}});
+            try
+            {
+                Icon icon = ((Icon)d);
+                icon.SetValue(RenderTransformProperty,
+                    new TransformGroup()
+                    {
+                        Children =
+                        {
+                            new ScaleTransform(icon.Size, icon.Size, icon.ActualWidth / 2, icon.ActualHeight / 2)
+                        }
+                    });
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         /// <summary>
@@ -71,5 +91,29 @@ namespace NeutrinoStudio.Utilities.Controls
         }
 
         public new Transform RenderTransform => (Transform)GetValue(RenderTransformProperty);
+
+        public new double ActualHeight => (double) GetValue(ActualWidthProperty);
+
+        #region IconList
+
+        private static List<string> _iconList;
+
+        public static List<string> IconList
+        {
+            get
+            {
+                if (!(_iconList is null)) return _iconList;
+                _iconList = new List<string>();
+                DirectoryInfo info = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "Assets/Icons"));
+                DirectoryInfo[] dirs = info.GetDirectories();
+                foreach (DirectoryInfo dir in dirs)
+                {
+                    _iconList.Add(dir.Name);
+                }
+                return _iconList;
+            }
+        }
+
+        #endregion
     }
 }
