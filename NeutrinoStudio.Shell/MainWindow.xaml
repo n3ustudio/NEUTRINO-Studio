@@ -7,6 +7,7 @@
         xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome"
         xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
         xmlns:yDock="clr-namespace:YDock;assembly=YDock"
+        xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         Background="{DynamicResource ThemeBrushKey}"
@@ -38,9 +39,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <controls:CaptionIcon Grid.Column="0">
-                    <Ellipse Width="18"
-                             Height="18"
-                             Fill="{DynamicResource ActiveForegroundBrushKey}" />
+                    <u:Icon Width="20" Height="20" Type="Assembly" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </controls:CaptionIcon>
                 <TextBlock Grid.Column="1"
                            Text="NEUTRINO Studio"
