@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +14,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using NeutrinoStudio.Shell.Commands;
 using NeutrinoStudio.Shell.Views.Docks;
 using NeutrinoStudio.Shell.Views.Documents;
 using YDock;
 using YDock.Enum;
 using YDock.Interface;
+using Path = System.IO.Path;
 
 namespace NeutrinoStudio.Shell
 {
@@ -31,6 +35,8 @@ namespace NeutrinoStudio.Shell
             InitializeComponent();
 
             Loaded += OnLoaded;
+
+            Closing += OnClosing;
 
             Closed += (sender, args) => Application.Current.Shutdown(0);
 
@@ -51,6 +57,21 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDocument(_debugView);
         }
 
+        private static readonly string SettingFileName = Path.Combine(Environment.CurrentDirectory, "settings/layout.xml");
+
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "settings"));
+            DockManager.SaveCurrentLayout("MainWindow");
+            var doc = new XDocument();
+            var rootNode = new XElement("Layouts");
+            foreach (var layout in DockManager.Layouts.Values)
+                layout.Save(rootNode);
+            doc.Add(rootNode);
+            doc.Save(SettingFileName);
+            DockManager.Dispose();
+        }
+
         #region Views
 
         private readonly WelcomeView _welcomeView;
@@ -61,9 +82,27 @@ namespace NeutrinoStudio.Shell
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            _logView.DockControl.Show();
-            _welcomeView.DockControl.Show();
-            _debugView.DockControl.Show();
+
+            if (File.Exists(SettingFileName))
+            {
+                XDocument layout = XDocument.Parse(File.ReadAllText(SettingFileName));
+                if (layout.Root != null)
+                    foreach (XElement item in layout.Root.Elements())
+                    {
+                        string name = item.Attribute("Name")?.Value;
+                        if (string.IsNullOrEmpty(name)) continue;
+                        if (DockManager.Layouts.ContainsKey(name))
+                            DockManager.Layouts[name].Load(item);
+                        else DockManager.Layouts[name] = new YDock.LayoutSetting.LayoutSetting(name, item);
+                    }
+                DockManager.ApplyLayout("MainWindow");
+            }
+            else
+            {
+                _logView.DockControl.Show();
+                _welcomeView.DockControl.Show();
+                _debugView.DockControl.Show();
+            }
         }
     }
 }
