@@ -29,5 +29,10 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public IDockControl DockControl { get; set; }
         public string Header => "欢迎";
         public ImageSource Icon => null;
+
+        private void NoProjectButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
