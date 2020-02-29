@@ -34,8 +34,6 @@ namespace NeutrinoStudio.Shell
 
             Closed += (sender, args) => Application.Current.Shutdown(0);
 
-            DataContext = this;
-
             #region Command Bindings
 
             CommandBindings.Add(new CommandBinding(
