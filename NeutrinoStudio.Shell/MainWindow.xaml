@@ -8,6 +8,7 @@
         xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
         xmlns:yDock="clr-namespace:YDock;assembly=YDock"
         xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
+        xmlns:commands="clr-namespace:NeutrinoStudio.Shell.Commands"
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         Background="{DynamicResource ThemeBrushKey}"
@@ -61,7 +62,10 @@
             </Grid.RowDefinitions>
             <Menu>
                 <MenuItem Header="文件(_F)">
-                    <MenuItem Header="退出(_X)" Click="MenuItem_Exit_OnClick"/>
+                    <MenuItem Command="{x:Static commands:UICommands.ExitApp}" IsEnabled="True"/>
+                </MenuItem>
+                <MenuItem Header="编辑(_E)">
+                    <MenuItem Command="Undo"/>
                 </MenuItem>
             </Menu>
             <yDock:DockManager Grid.Row="1" x:Name="DockManager" Margin="0,0,0,-0.5"/>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NeutrinoStudio.Shell.Commands;
 using NeutrinoStudio.Shell.Views.Docks;
 using NeutrinoStudio.Shell.Views.Documents;
 using YDock;
@@ -31,32 +32,40 @@ namespace NeutrinoStudio.Shell
 
             Loaded += OnLoaded;
 
-            welcomeView = new WelcomeView();
-            logView = new LogView();
-            debugView = new DebugView();
-            DockManager.RegisterDocument(welcomeView);
-            DockManager.RegisterDock(logView, DockSide.Bottom);
-            DockManager.RegisterDocument(debugView);
+            Closed += (sender, args) => Application.Current.Shutdown(0);
+
+            DataContext = this;
+
+            #region Command Bindings
+
+            CommandBindings.Add(new CommandBinding(
+                UICommands.ExitApp,
+                (o, args) => Application.Current.Shutdown(0),
+                (o, args) => args.CanExecute = true));
+
+            #endregion
+
+            _welcomeView = new WelcomeView();
+            _logView = new LogView();
+            _debugView = new DebugView();
+            DockManager.RegisterDocument(_welcomeView);
+            DockManager.RegisterDock(_logView, DockSide.Bottom);
+            DockManager.RegisterDocument(_debugView);
         }
 
         #region Views
 
-        private WelcomeView welcomeView;
-        private LogView logView;
-        private DebugView debugView;
+        private readonly WelcomeView _welcomeView;
+        private readonly LogView _logView;
+        private readonly DebugView _debugView;
 
         #endregion
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            welcomeView.DockControl.Show();
-            logView.DockControl.Show(false);
-            debugView.DockControl.Show(false);
-        }
-
-        private void MenuItem_Exit_OnClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown(0);
+            _logView.DockControl.Show();
+            _welcomeView.DockControl.Show();
+            _debugView.DockControl.Show();
         }
     }
 }
