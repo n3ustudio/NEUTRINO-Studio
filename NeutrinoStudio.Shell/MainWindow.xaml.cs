@@ -72,6 +72,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => _logView.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenTaskView,
+                (sender, args) => _taskView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -81,11 +86,13 @@ namespace NeutrinoStudio.Shell
             _debugView = new DebugView();
             _settingsView = new SettingsView();
             _projectView = new ProjectView();
+            _taskView = new TaskView();
             DockManager.RegisterDocument(_welcomeView);
             DockManager.RegisterDock(_logView, DockSide.Bottom);
             DockManager.RegisterDocument(_debugView);
             DockManager.RegisterDocument(_settingsView);
             DockManager.RegisterDocument(_projectView);
+            DockManager.RegisterDock(_taskView, DockSide.Right);
 
             #endregion
         }
@@ -112,6 +119,7 @@ namespace NeutrinoStudio.Shell
         private readonly DebugView _debugView;
         private readonly SettingsView _settingsView;
         private readonly ProjectView _projectView;
+        private readonly TaskView _taskView;
 
         #endregion
 
