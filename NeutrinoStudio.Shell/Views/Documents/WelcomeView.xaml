@@ -10,7 +10,7 @@
              Foreground="White"
              SnapsToDevicePixels="True"
              d:DesignHeight="720" d:DesignWidth="1280">
-    <ScrollViewer>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
