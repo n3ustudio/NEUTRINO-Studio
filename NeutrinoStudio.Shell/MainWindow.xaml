@@ -83,10 +83,18 @@
                 <MenuItem Header="视图(_V)">
                     <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
                     <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
                     <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
                     <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
                 </MenuItem>
-                <MenuItem Header="任务(_B)"/>
+                <MenuItem Header="任务(_B)">
+                    <MenuItem Command="{x:Static commands:UICommands.Generate}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.Monitor}" Foreground="#FF212121"/>
+                    <Separator/>
+                    <MenuItem Command="{x:Static commands:UICommands.Queue}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.Run}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.Stop}" Foreground="#FF212121"/>
+                </MenuItem>
                 <MenuItem Header="工具(_T)">
                     <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
                 </MenuItem>

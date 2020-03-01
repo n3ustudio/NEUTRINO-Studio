@@ -57,5 +57,59 @@ namespace NeutrinoStudio.Shell.Commands
             {
                 new KeyGesture(Key.L, ModifierKeys.Control, "Ctrl+L")
             }));
+
+        public static RoutedUICommand OpenTaskView { get; } = new RoutedUICommand(
+            "任务(_T)",
+            "Task",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.T, ModifierKeys.Control, "Ctrl+T")
+            }));
+
+        public static RoutedUICommand Monitor { get; } = new RoutedUICommand(
+            "监视(_M)",
+            "Monitor",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.F6, ModifierKeys.None, "F6")
+            }));
+
+        public static RoutedUICommand Generate { get; } = new RoutedUICommand(
+            "生成(_G)",
+            "Generate",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.F5, ModifierKeys.None, "F5")
+            }));
+
+        public static RoutedUICommand Queue { get; } = new RoutedUICommand(
+            "队列(_Q)",
+            "Queue",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.F7, ModifierKeys.None, "F7")
+            }));
+
+        public static RoutedUICommand Run { get; } = new RoutedUICommand(
+            "启动(_R)",
+            "Run",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.F8, ModifierKeys.None, "F8")
+            }));
+
+        public static RoutedUICommand Stop { get; } = new RoutedUICommand(
+            "停止(_S)",
+            "Stop",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.F9, ModifierKeys.None, "F9")
+            }));
     }
 }
