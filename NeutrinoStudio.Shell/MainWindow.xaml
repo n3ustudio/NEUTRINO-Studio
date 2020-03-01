@@ -67,6 +67,18 @@
                 <MenuItem Header="编辑(_E)">
                     <MenuItem Command="Undo" Foreground="#FF212121"/>
                 </MenuItem>
+                <MenuItem Header="视图(_V)">
+                    <MenuItem Header="欢迎(_W)" Foreground="#FF212121"/>
+                    <MenuItem Header="项目(_P)" Foreground="#FF212121"/>
+                    <MenuItem Header="设置(_S)" Foreground="#FF212121"/>
+                    <MenuItem Header="调试(_D)" Foreground="#FF212121"/>
+                </MenuItem>
+                <MenuItem Header="工具(_T)">
+                    <MenuItem Header="日志(_L)" Foreground="#FF212121"/>
+                </MenuItem>
+                <MenuItem Header="帮助(_H)">
+                    <MenuItem Header="关于 NEUTRINO Studio" Foreground="#FF212121"/>
+                </MenuItem>
             </Menu>
             <yDock:DockManager Grid.Row="1" x:Name="DockManager" Margin="0,0,0,-0.5"/>
         </Grid>

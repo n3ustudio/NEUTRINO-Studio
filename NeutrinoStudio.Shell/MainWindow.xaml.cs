@@ -49,12 +49,18 @@ namespace NeutrinoStudio.Shell
 
             #endregion
 
+            #region Document Register
+
             _welcomeView = new WelcomeView();
             _logView = new LogView();
             _debugView = new DebugView();
+            _settingsView = new SettingsView();
             DockManager.RegisterDocument(_welcomeView);
             DockManager.RegisterDock(_logView, DockSide.Bottom);
             DockManager.RegisterDocument(_debugView);
+            DockManager.RegisterDocument(_settingsView);
+
+            #endregion
         }
 
         private static readonly string SettingFileName = Path.Combine(Environment.CurrentDirectory, "settings/layout.xml");
@@ -77,6 +83,7 @@ namespace NeutrinoStudio.Shell
         private readonly WelcomeView _welcomeView;
         private readonly LogView _logView;
         private readonly DebugView _debugView;
+        private readonly SettingsView _settingsView;
 
         #endregion
 
@@ -102,6 +109,7 @@ namespace NeutrinoStudio.Shell
                 _logView.DockControl.Show();
                 _welcomeView.DockControl.Show();
                 _debugView.DockControl.Show();
+                _settingsView.DockControl.Show();
             }
         }
     }
