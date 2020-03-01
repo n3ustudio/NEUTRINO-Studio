@@ -4,3 +4,6 @@
 [submodule "YDock"]
 	path = YDock
 	url = https://github.com/n3ustudio/YDock.git
+[submodule "NeuTask"]
+	path = NeuTask
+	url = https://github.com/n3ustudio/NeuTask.git
