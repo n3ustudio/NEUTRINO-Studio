@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
+             xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -18,6 +19,26 @@
             </Grid.RowDefinitions>
             <Grid>
                 <TextBlock Text="项目" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="24,0">
+                    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                            Height="80" Width="80" Margin="12,0" Padding="0" IsEnabled="False">
+                        <Grid Height="80" Width="80">
+                            <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                       Margin="-2,0,0,6" Text="监视"/>
+                        </Grid>
+                    </Button>
+                    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                            Height="80" Width="80" Margin="12,0" Padding="0">
+                        <Grid Height="80" Width="80">
+                            <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                       Margin="-2,0,0,6" Text="启动"/>
+                        </Grid>
+                    </Button>
+                </StackPanel>
             </Grid>
             <Grid Margin="96,24" Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -25,10 +46,78 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <TextBlock Text="输入" Style="{DynamicResource NeuShellTitleTextStyle}"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Grid.Column="1">
                     <TextBlock Text="流程" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                    <TextBlock Text="输入" Margin="0,6"/>
+                    <CheckBox Margin="0,6" Content="预转换" IsEnabled="False"/>
+                    <StackPanel Margin="0,6" Orientation="Horizontal">
+                        <RadioButton Content="xml(musicxml)" Margin="0,0,6,0"/>
+                        <RadioButton Content="musicxml" Margin="0,0,6,0"/>
+                        <RadioButton Content="vsq" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton Content="vsqx" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton Content="vpr" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton Content="ust" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton Content="ccx" Margin="0,0,6,0" IsEnabled="False"/>
+                    </StackPanel>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding InputDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                    </Grid>
+                    <TextBlock Text="转换" Margin="0,6"/>
+                    <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding LabelDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                    </Grid>
+                    <TextBlock Text="生成" Margin="0,6"/>
+                    <CheckBox Content="生成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding SynthDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                    </Grid>
+                    <TextBlock Text="合成" Margin="0,6"/>
+                    <CheckBox Content="合成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding OutputDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                    </Grid>
+                    <TextBlock Text="输出" Margin="0,6"/>
+                    <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <StackPanel Margin="0,6" Orientation="Horizontal">
+                        <RadioButton Content="wav" Margin="0,0,6,0" IsChecked="True"/>
+                        <RadioButton Content="mp3" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton Content="flac" Margin="0,0,6,0" IsEnabled="False"/>
+                    </StackPanel>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding ConvertDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="状态" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                    <TextBlock Text="就绪" Margin="0,6"/>
+                    <ProgressBar Margin="6" Value="0" Height="20"/>
+                    <TextBlock Margin="0,6"/>
+                    <TextBlock Text="详细信息请查看“日志”面板。" Margin="0,6"/>
                 </StackPanel>
             </Grid>
         </Grid>
