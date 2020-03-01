@@ -45,6 +45,18 @@ namespace NeutrinoStudio.Shell.Views.Documents
             }
         }
 
+        private OutputFormat _outputFormat = OutputFormat.Undefined;
+
+        public OutputFormat OutputFormat
+        {
+            get => _outputFormat;
+            set
+            {
+                _outputFormat = value;
+                OnPropertyChanged(nameof(OutputFormat));
+            }
+        }
+
         #endregion
 
         public IDockControl DockControl { get; set; }
@@ -56,6 +68,24 @@ namespace NeutrinoStudio.Shell.Views.Documents
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is null) return;
+            switch (((Button)sender).Tag)
+            {
+                case "Input":
+                    break;
+                case "Convert":
+                    break;
+                case "Generate":
+                    break;
+                case "Synth":
+                    break;
+                case "Output":
+                    break;
+            }
         }
     }
 }

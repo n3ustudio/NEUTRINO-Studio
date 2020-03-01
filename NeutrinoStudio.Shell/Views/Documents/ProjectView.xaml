@@ -79,7 +79,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding InputDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Input" Click="ButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="转换" Margin="0,6"/>
                     <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
@@ -89,7 +89,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding LabelDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Convert" Click="ButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="生成" Margin="0,6"/>
                     <CheckBox Content="生成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
@@ -99,7 +99,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding SynthDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Generate" Click="ButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="合成" Margin="0,6"/>
                     <CheckBox Content="合成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
@@ -109,14 +109,20 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding OutputDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Synth" Click="ButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="输出" Margin="0,6"/>
                     <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
-                        <RadioButton Content="wav" Margin="0,0,6,0" IsChecked="True"/>
-                        <RadioButton Content="mp3" Margin="0,0,6,0" IsEnabled="False"/>
-                        <RadioButton Content="flac" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="OutputFormat"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=1}"
+                                     Content="wav" Margin="0,0,6,0"/>
+                        <RadioButton GroupName="OutputFormat"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=2}"
+                                     Content="mp3" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="OutputFormat"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=3}"
+                                     Content="flac" Margin="0,0,6,0" IsEnabled="False"/>
                     </StackPanel>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>
@@ -124,7 +130,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding ConvertDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Output" Click="ButtonBase_OnClick"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
