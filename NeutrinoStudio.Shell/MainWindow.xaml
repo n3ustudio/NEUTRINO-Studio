@@ -62,21 +62,36 @@
             </Grid.RowDefinitions>
             <Menu Background="{x:Null}" Foreground="White">
                 <MenuItem Header="文件(_F)">
+                    <MenuItem Command="New" Foreground="#FF212121"/>
+                    <MenuItem Command="Open" Foreground="#FF212121"/>
+                    <MenuItem Command="Close" Foreground="#FF212121"/>
+                    <Separator/>
                     <MenuItem Command="{x:Static commands:UICommands.ExitApp}" Foreground="#FF212121"/>
                 </MenuItem>
                 <MenuItem Header="编辑(_E)">
                     <MenuItem Command="Undo" Foreground="#FF212121"/>
+                    <MenuItem Command="Redo" Foreground="#FF212121"/>
+                    <Separator/>
+                    <MenuItem Command="Cut" Foreground="#FF212121"/>
+                    <MenuItem Command="Copy" Foreground="#FF212121"/>
+                    <MenuItem Command="Paste" Foreground="#FF212121"/>
+                    <Separator/>
+                    <MenuItem Command="Find" Foreground="#FF212121"/>
+                    <MenuItem Command="Replace" Foreground="#FF212121"/>
                 </MenuItem>
                 <MenuItem Header="视图(_V)">
-                    <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeWindow}" Foreground="#FF212121"/>
-                    <MenuItem Header="项目(_P)" Foreground="#FF212121"/>
-                    <MenuItem Header="设置(_S)" Foreground="#FF212121"/>
-                    <MenuItem Header="调试(_D)" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
                 </MenuItem>
+                <MenuItem Header="任务(_B)"/>
                 <MenuItem Header="工具(_T)">
-                    <MenuItem Header="日志(_L)" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
                 </MenuItem>
                 <MenuItem Header="帮助(_H)">
+                    <MenuItem Command="Help" Foreground="#FF212121"/>
+                    <Separator/>
                     <MenuItem Header="关于 NEUTRINO Studio" Foreground="#FF212121"/>
                 </MenuItem>
             </Menu>

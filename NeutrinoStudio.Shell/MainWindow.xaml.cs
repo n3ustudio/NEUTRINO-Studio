@@ -48,8 +48,28 @@ namespace NeutrinoStudio.Shell
                 (o, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
-                UICommands.OpenWelcomeWindow,
+                UICommands.OpenWelcomeView,
                 (sender, args) => _welcomeView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenProjectView,
+                (sender, args) => _projectView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenSettingsView,
+                (sender, args) => _settingsView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenDebugView,
+                (sender, args) => _debugView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenLogView,
+                (sender, args) => _logView.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             #endregion
@@ -60,10 +80,12 @@ namespace NeutrinoStudio.Shell
             _logView = new LogView();
             _debugView = new DebugView();
             _settingsView = new SettingsView();
+            _projectView = new ProjectView();
             DockManager.RegisterDocument(_welcomeView);
             DockManager.RegisterDock(_logView, DockSide.Bottom);
             DockManager.RegisterDocument(_debugView);
             DockManager.RegisterDocument(_settingsView);
+            DockManager.RegisterDocument(_projectView);
 
             #endregion
         }
@@ -89,6 +111,7 @@ namespace NeutrinoStudio.Shell
         private readonly LogView _logView;
         private readonly DebugView _debugView;
         private readonly SettingsView _settingsView;
+        private readonly ProjectView _projectView;
 
         #endregion
 
@@ -111,10 +134,7 @@ namespace NeutrinoStudio.Shell
             }
             else
             {
-                _logView.DockControl.Show();
                 _welcomeView.DockControl.Show();
-                _debugView.DockControl.Show();
-                _settingsView.DockControl.Show();
             }
         }
     }
