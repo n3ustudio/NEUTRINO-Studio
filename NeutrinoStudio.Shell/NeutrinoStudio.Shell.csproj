@@ -74,6 +74,9 @@
     <Compile Include="Views\Documents\DebugView.xaml.cs">
       <DependentUpon>DebugView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Documents\ProjectView.xaml.cs">
+      <DependentUpon>ProjectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Documents\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Documents\DebugView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\ProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
