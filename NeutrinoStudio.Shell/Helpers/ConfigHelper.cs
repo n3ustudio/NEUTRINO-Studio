@@ -38,7 +38,7 @@ namespace NeutrinoStudio.Shell.Helpers
         /// </summary>
         /// <param name="key">Key of the setting.</param>
         /// <param name="value">Value of the setting.</param>
-        public static void UpdateAppSettings(string key, string value)
+        public static void UpdateAppSetting(string key, string value)
         {
             if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
             {
