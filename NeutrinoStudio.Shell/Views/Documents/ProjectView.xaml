@@ -67,7 +67,7 @@
                                      Content="ust" Margin="0,0,6,0" IsEnabled="False"/>
                         <RadioButton GroupName="InputFormat"
                                      IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=7}"
-                                     Content="ccx" Margin="0,0,6,0" IsEnabled="False"/>
+                                     Content="ccs" Margin="0,0,6,0" IsEnabled="False"/>
                     </StackPanel>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>

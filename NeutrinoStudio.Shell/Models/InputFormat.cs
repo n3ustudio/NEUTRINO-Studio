@@ -17,7 +17,7 @@ namespace NeutrinoStudio.Shell.Models
         Vsqx = 4,
         Vpr = 5,
         Ust = 6,
-        Ccx = 7
+        Ccs = 7
     }
 
     public static class InputFormatHelper
