@@ -60,12 +60,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Menu>
+            <Menu Background="{x:Null}" Foreground="White">
                 <MenuItem Header="文件(_F)">
-                    <MenuItem Command="{x:Static commands:UICommands.ExitApp}" IsEnabled="True"/>
+                    <MenuItem Command="{x:Static commands:UICommands.ExitApp}" Foreground="#FF212121"/>
                 </MenuItem>
                 <MenuItem Header="编辑(_E)">
-                    <MenuItem Command="Undo"/>
+                    <MenuItem Command="Undo" Foreground="#FF212121"/>
                 </MenuItem>
             </Menu>
             <yDock:DockManager Grid.Row="1" x:Name="DockManager" Margin="0,0,0,-0.5"/>
