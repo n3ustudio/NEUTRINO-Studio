@@ -24,7 +24,15 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public SettingsView()
         {
             InitializeComponent();
+
+            DataContext = this;
         }
+
+        #region DataContext
+
+        public string NeutrinoDir { get; set; } = "正在读取配置……";
+
+        #endregion
 
         public IDockControl DockControl { get; set; }
         public string Header => "设置";
