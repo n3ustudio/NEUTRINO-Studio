@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Docks"
+             xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -12,11 +13,49 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid>
-            <TextBlock Text="设置" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
+        <Grid Margin="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <ProgressBar Height="12" Margin="0,6"/>
+                <ProgressBar Height="12" Margin="0,6"/>
+                <TextBlock Margin="0,6"/>
+                <TextBlock Margin="0,6"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="24,0">
+                <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                        Height="80" Width="80" Margin="12,0" Padding="0">
+                    <Grid Height="80" Width="80">
+                        <!--<u:Icon Type="ExternalFiles" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                   Margin="-2,0,0,6" Text="队列"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                        Height="80" Width="80" Margin="12,0" Padding="0">
+                    <Grid Height="80" Width="80">
+                        <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                   Margin="-2,0,0,6" Text="启动"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                        Height="80" Width="80" Margin="12,0" Padding="0">
+                    <Grid Height="80" Width="80">
+                        <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                   Margin="-2,0,0,6" Text="终止"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
         </Grid>
         <ListView Grid.Row="1" Margin="12" Background="{DynamicResource BackgroundBrushKey}" Foreground="White"/>
     </Grid>
