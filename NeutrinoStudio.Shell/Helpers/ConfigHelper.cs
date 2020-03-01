@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace NeutrinoStudio.Shell.Helpers
 {
+    /// <summary>
+    /// Config Helper.
+    /// </summary>
     public static class ConfigHelper
     {
+        /// <summary>
+        /// Get app setting.
+        /// </summary>
+        /// <param name="key">Key of the setting.</param>
+        /// <returns></returns>
         public static string GetAppSetting(string key)
         {
             if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
@@ -21,17 +29,22 @@ namespace NeutrinoStudio.Shell.Helpers
             }
         }
 
+        /// <summary>
+        /// Update app setting.
+        /// </summary>
+        /// <param name="key">Key of the setting.</param>
+        /// <param name="value">Value of the setting.</param>
         public static void UpdateAppSettings(string key, string value)
         {
             if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
             {
-                //如果当前节点存在，则更新当前节点
                 config.AppSettings.Settings[key].Value = value;
                 config.Save(ConfigurationSaveMode.Modified);
             }
             else
             {
-                Console.WriteLine("当前节点不存在");
+                config.AppSettings.Settings.Add(key, value);
+                config.Save(ConfigurationSaveMode.Modified);
             }
         }
     }
