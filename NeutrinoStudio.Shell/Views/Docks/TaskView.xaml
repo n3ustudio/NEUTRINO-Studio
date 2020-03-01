@@ -31,8 +31,8 @@
                 <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                         Height="80" Width="80" Margin="12,0" Padding="0">
                     <Grid Height="80" Width="80">
-                        <!--<u:Icon Type="ExternalFiles" Width="35" Height="35" Size="2"
-                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <u:Icon Type="BuildSolution" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                    Margin="-2,0,0,6" Text="队列"/>
                     </Grid>
@@ -40,8 +40,8 @@
                 <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                         Height="80" Width="80" Margin="12,0" Padding="0">
                     <Grid Height="80" Width="80">
-                        <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
-                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <u:Icon Type="Execute" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                    Margin="-2,0,0,6" Text="启动"/>
                     </Grid>
@@ -49,10 +49,10 @@
                 <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                         Height="80" Width="80" Margin="12,0" Padding="0">
                     <Grid Height="80" Width="80">
-                        <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
-                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                        <u:Icon Type="Exit" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                                   Margin="-2,0,0,6" Text="终止"/>
+                                   Margin="-2,0,0,6" Text="停止"/>
                     </Grid>
                 </Button>
             </StackPanel>
