@@ -13,11 +13,12 @@
         FontFamily="Segoe UI"
         Background="{DynamicResource ThemeBrushKey}"
         Foreground="White"
-        WindowState="{Binding WindowState}"
+        WindowState="Maximized"
         UseLayoutRounding="True"
         IsRestoringWindowPlacement="True"
         TextOptions.TextFormattingMode="Display"
-        SnapsToDevicePixels="True" Height="720" Width="1280">
+        SnapsToDevicePixels="True" Height="720" Width="1280"
+        MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen">
 
     <chrome:WindowChrome.Instance>
         <chrome:WindowChrome>
