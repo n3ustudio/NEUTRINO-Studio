@@ -68,7 +68,7 @@
                     <MenuItem Command="Undo" Foreground="#FF212121"/>
                 </MenuItem>
                 <MenuItem Header="视图(_V)">
-                    <MenuItem Header="欢迎(_W)" Foreground="#FF212121"/>
+                    <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeWindow}" Foreground="#FF212121"/>
                     <MenuItem Header="项目(_P)" Foreground="#FF212121"/>
                     <MenuItem Header="设置(_S)" Foreground="#FF212121"/>
                     <MenuItem Header="调试(_D)" Foreground="#FF212121"/>

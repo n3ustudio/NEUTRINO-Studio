@@ -47,6 +47,11 @@ namespace NeutrinoStudio.Shell
                 (o, args) => Application.Current.Shutdown(0),
                 (o, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenWelcomeWindow,
+                (sender, args) => _welcomeView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register

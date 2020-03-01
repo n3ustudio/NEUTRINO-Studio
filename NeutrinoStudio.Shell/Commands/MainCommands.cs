@@ -11,11 +11,17 @@ namespace NeutrinoStudio.Shell.Commands
 {
     public static class UICommands
     {
+
         public static RoutedUICommand ExitApp { get; } = new RoutedUICommand(
             "退出(_Q)",
             "Exit",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
                 {new KeyGesture(Key.F4, ModifierKeys.Alt, "Alt+F4")}));
+
+        public static RoutedUICommand OpenWelcomeWindow { get; } = new RoutedUICommand(
+            "欢迎(_W)",
+            "Welcome",
+            typeof(UICommands));
     }
 }
