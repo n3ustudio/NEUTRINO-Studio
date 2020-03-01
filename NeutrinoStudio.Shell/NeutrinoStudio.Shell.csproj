@@ -74,6 +74,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\MainCommands.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
+    <Compile Include="Models\InputFormat.cs" />
     <Compile Include="Views\Docks\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>

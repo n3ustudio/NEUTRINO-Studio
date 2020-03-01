@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NeutrinoStudio.Shell.Models;
 using YDock.Interface;
 
 namespace NeutrinoStudio.Shell.Views.Documents
@@ -30,9 +31,26 @@ namespace NeutrinoStudio.Shell.Views.Documents
             DataContext = this;
         }
 
+        #region DataContext
+
+        private InputFormat _inputFormat = InputFormat.Undefined;
+
+        public InputFormat InputFormat
+        {
+            get => _inputFormat;
+            set
+            {
+                _inputFormat = value;
+                OnPropertyChanged(nameof(InputFormat));
+            }
+        }
+
+        #endregion
+
         public IDockControl DockControl { get; set; }
         public string Header => "项目";
         public ImageSource Icon => null;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

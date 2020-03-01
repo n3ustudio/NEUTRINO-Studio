@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
              xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
+             xmlns:m="clr-namespace:NeutrinoStudio.Shell.Models"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -50,13 +51,27 @@
                     <TextBlock Text="输入" Margin="0,6"/>
                     <CheckBox Margin="0,6" Content="预转换" IsEnabled="False"/>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
-                        <RadioButton Content="xml(musicxml)" Margin="0,0,6,0"/>
-                        <RadioButton Content="musicxml" Margin="0,0,6,0"/>
-                        <RadioButton Content="vsq" Margin="0,0,6,0" IsEnabled="False"/>
-                        <RadioButton Content="vsqx" Margin="0,0,6,0" IsEnabled="False"/>
-                        <RadioButton Content="vpr" Margin="0,0,6,0" IsEnabled="False"/>
-                        <RadioButton Content="ust" Margin="0,0,6,0" IsEnabled="False"/>
-                        <RadioButton Content="ccx" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=1}"
+                                     Content="xml(musicxml)" Margin="0,0,6,0"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=2}"
+                                     Content="musicxml" Margin="0,0,6,0"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=3}"
+                                     Content="vsq" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=4}"
+                                     Content="vsqx" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=5}"
+                                     Content="vpr" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=6}"
+                                     Content="ust" Margin="0,0,6,0" IsEnabled="False"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=7}"
+                                     Content="ccx" Margin="0,0,6,0" IsEnabled="False"/>
                     </StackPanel>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>
@@ -115,7 +130,8 @@
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="状态" Style="{DynamicResource NeuShellTitleTextStyle}"/>
                     <TextBlock Text="就绪" Margin="0,6"/>
-                    <ProgressBar Margin="6" Value="0" Height="20"/>
+                    <ProgressBar Margin="6" Value="0" Height="12"/>
+                    <ProgressBar Margin="6" Value="0" Height="12"/>
                     <TextBlock Margin="0,6"/>
                     <TextBlock Text="详细信息请查看“日志”面板。" Margin="0,6"/>
                 </StackPanel>
