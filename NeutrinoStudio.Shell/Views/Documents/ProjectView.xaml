@@ -24,8 +24,8 @@
                     <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                             Height="80" Width="80" Margin="12,0" Padding="0" IsEnabled="False">
                         <Grid Height="80" Width="80">
-                            <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
-                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                            <u:Icon Type="ExternalFiles" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                        Margin="-2,0,0,6" Text="监视"/>
                         </Grid>
@@ -33,19 +33,15 @@
                     <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                             Height="80" Width="80" Margin="12,0" Padding="0">
                         <Grid Height="80" Width="80">
-                            <!--<u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
-                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>-->
+                            <u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                        Margin="-2,0,0,6" Text="启动"/>
                         </Grid>
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid Margin="96,24" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+            <Grid Margin="96,24" Grid.Row="1" MinWidth="450" MaxWidth="700" HorizontalAlignment="Left">
                 <StackPanel>
                     <TextBlock Text="流程" Style="{DynamicResource NeuShellTitleTextStyle}"/>
                     <TextBlock Text="输入" Margin="0,6"/>
@@ -133,15 +129,7 @@
                         <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Output" Click="ButtonBase_OnClick"/>
                     </Grid>
                 </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <TextBlock Text="状态" Style="{DynamicResource NeuShellTitleTextStyle}"/>
-                    <TextBlock Text="就绪" Margin="0,6"/>
-                    <ProgressBar Margin="6" Value="0" Height="12"/>
-                    <ProgressBar Margin="6" Value="0" Height="12"/>
-                    <TextBlock Margin="0,6"/>
-                    <TextBlock Text="详细信息请查看“日志”面板。" Margin="0,6"/>
-                </StackPanel>
+                </Grid>
             </Grid>
-        </Grid>
     </ScrollViewer>
 </UserControl>
