@@ -36,7 +36,8 @@
                         <TextBlock Text="{Binding NeutrinoDir}"/>
                         <Button Margin="6,0" Grid.Column="1" Content="…" Click="SetNeutrinoDirButtonBase_OnClick"/>
                     </Grid>
-                    <Button Content="打开声库文件夹" HorizontalAlignment="Left" Margin="0,6" Click="OpenModelsButtonBase_OnClick"/>
+                    <Button Content="打开声库文件夹" HorizontalAlignment="Left" Margin="0,6"
+                            Click="OpenModelsButtonBase_OnClick" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Grid.Column="1">
                     <TextBlock Text="" Style="{DynamicResource NeuShellTitleTextStyle}"/>
