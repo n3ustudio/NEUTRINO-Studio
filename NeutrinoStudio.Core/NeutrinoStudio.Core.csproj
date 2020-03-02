@@ -46,5 +46,11 @@
   <ItemGroup>
     <Folder Include="Tasks\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
+      <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
+      <Name>NeuTask</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
