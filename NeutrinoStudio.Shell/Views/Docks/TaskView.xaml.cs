@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NeuTask;
 using YDock.Interface;
 
 namespace NeutrinoStudio.Shell.Views.Docks
@@ -29,5 +30,15 @@ namespace NeutrinoStudio.Shell.Views.Docks
         public IDockControl DockControl { get; set; }
         public string Header => "任务";
         public ImageSource Icon => null;
+
+        private void StopButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            TaskManager.Current.Stop();
+        }
+
+        private void ClearButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            TaskManager.Current.Clear();
+        }
     }
 }
