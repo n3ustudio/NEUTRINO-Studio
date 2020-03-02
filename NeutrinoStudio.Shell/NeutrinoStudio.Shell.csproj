@@ -187,6 +187,10 @@
       <Project>{7f898b3a-da17-4cab-b387-5629b5faca49}</Project>
       <Name>RetroRadiance</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
+      <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
+      <Name>NeuTask</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj">
       <Project>{0354d973-ec37-4e94-941a-a12dd2629e96}</Project>
       <Name>NeutrinoStudio.Utilities</Name>
