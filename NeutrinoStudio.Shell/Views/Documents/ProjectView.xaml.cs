@@ -230,6 +230,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             ProjectDir = Path.Combine(dir, ProjectName);
             LabelDir = Path.Combine(ProjectDir, "label");
             SynthDir = Path.Combine(ProjectDir, "output");
+            OutputDir = Path.Combine(ProjectDir, "output");
 
             #endregion
 
@@ -352,11 +353,11 @@ namespace NeutrinoStudio.Shell.Views.Documents
             string labelOutput = Path.Combine(LabelDir, $"mono/{ProjectName}.lab");
             string neuInputFull = Path.Combine(LabelDir, $"full/{ProjectName}.lab");
             string neuInputTiming = Path.Combine(LabelDir, $"timing/{ProjectName}.lab");
-            string neuOutputF0 = Path.Combine(OutputDir, $"{ProjectName}.f0");
-            string neuOutputMgc = Path.Combine(OutputDir, $"{ProjectName}.mgc");
-            string neuOutputBap = Path.Combine(OutputDir, $"{ProjectName}.bap");
+            string neuOutputF0 = Path.Combine(SynthDir, $"{ProjectName}.f0");
+            string neuOutputMgc = Path.Combine(SynthDir, $"{ProjectName}.mgc");
+            string neuOutputBap = Path.Combine(SynthDir, $"{ProjectName}.bap");
             string synthOutput = Path.Combine(OutputDir, $"{ProjectName}.wav");
-
+            
             LogHelper.Current.Log(LogType.Warn, "合成：启动");
             LogHelper.Current.Log(LogType.Warn, "配置：");
             LogHelper.Current.Log(LogType.Warn, "musicXMLtoLabel:");
