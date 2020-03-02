@@ -191,6 +191,10 @@
       <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
       <Name>NeuTask</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeutrinoStudio.Core\NeutrinoStudio.Core.csproj">
+      <Project>{b535fad6-a3cc-4fe7-94b7-99c810115be4}</Project>
+      <Name>NeutrinoStudio.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj">
       <Project>{0354d973-ec37-4e94-941a-a12dd2629e96}</Project>
       <Name>NeutrinoStudio.Utilities</Name>
