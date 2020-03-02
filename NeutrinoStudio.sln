@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Utilities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuTask", "NeuTask\NeuTask\NeuTask.csproj", "{55FBC5C7-565A-4471-9151-36C423A2A1FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Core", "NeutrinoStudio.Core\NeutrinoStudio.Core.csproj", "{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -154,6 +156,18 @@ Global
 		{55FBC5C7-565A-4471-9151-36C423A2A1FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55FBC5C7-565A-4471-9151-36C423A2A1FE}.Release|x86.ActiveCfg = Release|Any CPU
 		{55FBC5C7-565A-4471-9151-36C423A2A1FE}.Release|x86.Build.0 = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Debug|x86.Build.0 = Debug|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release RETRO|Any CPU.ActiveCfg = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release RETRO|Any CPU.Build.0 = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release RETRO|x86.ActiveCfg = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release RETRO|x86.Build.0 = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release|x86.ActiveCfg = Release|Any CPU
+		{B535FAD6-A3CC-4FE7-94B7-99C810115BE4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
