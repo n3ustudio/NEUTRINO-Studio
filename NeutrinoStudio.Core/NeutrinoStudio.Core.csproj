@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\ConvertTask.cs" />
+    <Compile Include="Tasks\GenerateTask.cs" />
+    <Compile Include="Tasks\InputTask.cs" />
+    <Compile Include="Tasks\OutputTask.cs" />
+    <Compile Include="Tasks\SynthTask.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tasks\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
       <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
