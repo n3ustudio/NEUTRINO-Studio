@@ -22,6 +22,29 @@ namespace NeutrinoStudio.Shell
             // Initialize
             LogHelper.Current.Log(LogType.Info, $"NEUTRINO Studio {Assembly.GetExecutingAssembly().GetName().Version}");
 
+            DispatcherUnhandledException += (sender, args) =>
+            {
+                args.Handled = true;
+                LogHelper.Current.Log(LogType.Fatal, args.Exception.Message);
+                MessageBox.Show(
+                    args.Exception.Message,
+                    "灾难性故障",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error,
+                    MessageBoxResult.OK);
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                LogHelper.Current.Log(LogType.Fatal, (args.ExceptionObject as Exception)?.Message ?? "Exception");
+                MessageBox.Show(
+                    (args.ExceptionObject as Exception)?.Message ?? "Exception",
+                    "灾难性故障",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error,
+                    MessageBoxResult.OK);
+            };
+
             // Show Window
             if (MainWindow is null) MainWindow = new MainWindow();
             MainWindow.Show();
