@@ -379,7 +379,25 @@ namespace NeutrinoStudio.Shell.Views.Documents
             LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
 
-            TaskManager.Current.Push(new LabelTask(ConfigHelper.GetAppSetting("NeutrinoDir"), InputDir, neuInputFull, labelOutput));
+            TaskManager.Current.Push(new LabelTask(
+                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                InputDir,
+                neuInputFull,
+                labelOutput));
+            TaskManager.Current.Push(new SynthTask(
+                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                neuInputFull,
+                neuInputTiming,
+                neuOutputF0,
+                neuOutputMgc,
+                neuOutputBap,
+                ModelDir));
+            TaskManager.Current.Push(new OutputTask(
+                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                neuOutputF0,
+                neuOutputMgc,
+                neuOutputBap,
+                synthOutput));
 
         }
 
