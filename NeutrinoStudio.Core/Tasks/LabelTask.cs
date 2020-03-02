@@ -7,7 +7,7 @@ using Task = NeuTask.Task;
 
 namespace NeutrinoStudio.Core.Tasks
 {
-    public sealed class GenerateTask : Task
+    public sealed class LabelTask : Task
     {
         public override void Start()
         {
