@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using NeuTask;
+using NeutrinoStudio.Core.Tasks;
 using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.Models;
 using YDock.Interface;
@@ -376,6 +378,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputBap}");
             LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
+
+            TaskManager.Current.Push(new LabelTask(ConfigHelper.GetAppSetting("NeutrinoDir"), InputDir, neuInputFull, labelOutput));
 
         }
 
