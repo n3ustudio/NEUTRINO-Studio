@@ -31,7 +31,7 @@
                         </Grid>
                     </Button>
                     <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                            Height="80" Width="80" Margin="12,0" Padding="0">
+                            Height="80" Width="80" Margin="12,0" Padding="0" Click="StartButtonBase_OnClick">
                         <Grid Height="80" Width="80">
                             <u:Icon Type="BuildSelection" Width="35" Height="35" Size="2"
                                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0"/>
@@ -43,16 +43,37 @@
             </Grid>
             <Grid Margin="96,24" Grid.Row="1" MinWidth="450" MaxWidth="700" HorizontalAlignment="Left">
                 <StackPanel>
+                    <TextBlock Text="项目名称" Margin="0,6"/>
+                    <TextBlock Margin="0,6" Text="{Binding ProjectName}"/>
+                    <TextBlock Text="项目目录" Margin="0,6"/>
+                    <TextBlock Margin="0,6" Text="{Binding ProjectDir}"/>
                     <TextBlock Text="流程" Style="{DynamicResource NeuShellTitleTextStyle}"/>
-                    <TextBlock Text="输入" Margin="0,6"/>
-                    <CheckBox Margin="0,6" Content="预转换" IsEnabled="False"/>
+                    <Grid Margin="0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="输入" Margin="0,6"/>
+                            <TextBlock Margin="0,6">
+                                选择输入格式后轻敲选择按钮即可完成自动填充。<LineBreak/>
+                                之后选择模型并轻敲「启动」。
+                            </TextBlock>
+                            <CheckBox Margin="0,6" Content="预转换" IsEnabled="False"/>
+                        </StackPanel>
+                        <Button Margin="6,0" Grid.Column="1" Click="InputButtonBase_OnClick"
+                                HorizontalAlignment="Right" VerticalAlignment="Top">
+                            <u:Icon Type="FileDestination" Width="35" Height="35"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+                        </Button>
+                    </Grid>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="InputFormat"
                                      IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=1}"
-                                     Content="xml(musicxml)" Margin="0,0,6,0"/>
+                                     Content="musicxml" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
                                      IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=2}"
-                                     Content="musicxml" Margin="0,0,6,0"/>
+                                     Content="xml(musicxml)" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
                                      IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=3}"
                                      Content="vsq" Margin="0,0,6,0" IsEnabled="False"/>
@@ -69,14 +90,7 @@
                                      IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=7}"
                                      Content="ccs" Margin="0,0,6,0" IsEnabled="False"/>
                     </StackPanel>
-                    <Grid Margin="0,6,6,6">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding InputDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Input" Click="ButtonBase_OnClick"/>
-                    </Grid>
+                    <TextBlock Text="{Binding InputDir}" Margin="0,6"/>
                     <TextBlock Text="转换" Margin="0,6"/>
                     <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
                     <Grid Margin="0,6,6,6">
@@ -85,7 +99,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding LabelDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Convert" Click="ButtonBase_OnClick"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="LabelButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="生成" Margin="0,6"/>
                     <CheckBox Content="生成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
@@ -95,7 +109,16 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding SynthDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Generate" Click="ButtonBase_OnClick"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="SynthButtonBase_OnClick"/>
+                    </Grid>
+                    <TextBlock Text="模型" Margin="0,6"/>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding ModelDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="ModelButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="合成" Margin="0,6"/>
                     <CheckBox Content="合成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
@@ -105,14 +128,14 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding OutputDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Synth" Click="ButtonBase_OnClick"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="OutputButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="输出" Margin="0,6"/>
-                    <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="False"/>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="OutputFormat"
                                      IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=1}"
-                                     Content="wav" Margin="0,0,6,0"/>
+                                     Content="wav" Margin="0,0,6,0" IsEnabled="False"/>
                         <RadioButton GroupName="OutputFormat"
                                      IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=2}"
                                      Content="mp3" Margin="0,0,6,0" IsEnabled="False"/>
@@ -126,7 +149,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding ConvertDir}"/>
-                        <Button Margin="6,0" Grid.Column="1" Content="…" Tag="Output" Click="ButtonBase_OnClick"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="ConvertButtonBase_OnClick" IsEnabled="False"/>
                     </Grid>
                 </StackPanel>
                 </Grid>
