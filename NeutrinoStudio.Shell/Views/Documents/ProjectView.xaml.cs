@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.Models;
 using YDock.Interface;
 using Path = System.IO.Path;
@@ -347,6 +348,34 @@ namespace NeutrinoStudio.Shell.Views.Documents
                     MessageBoxImage.Error,
                     MessageBoxResult.OK);
             }
+
+            string labelOutput = Path.Combine(LabelDir, $"mono/{ProjectName}.lab");
+            string neuInputFull = Path.Combine(LabelDir, $"full/{ProjectName}.lab");
+            string neuInputTiming = Path.Combine(LabelDir, $"timing/{ProjectName}.lab");
+            string neuOutputF0 = Path.Combine(OutputDir, $"{ProjectName}.f0");
+            string neuOutputMgc = Path.Combine(OutputDir, $"{ProjectName}.mgc");
+            string neuOutputBap = Path.Combine(OutputDir, $"{ProjectName}.bap");
+            string synthOutput = Path.Combine(OutputDir, $"{ProjectName}.wav");
+
+            LogHelper.Current.Log(LogType.Warn, "合成：启动");
+            LogHelper.Current.Log(LogType.Warn, "配置：");
+            LogHelper.Current.Log(LogType.Warn, "musicXMLtoLabel:");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {InputDir}");
+            LogHelper.Current.Log(LogType.Warn, $"Output: {labelOutput}");
+            LogHelper.Current.Log(LogType.Warn, "NEUTRINO:");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {neuInputFull}");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {neuInputTiming}");
+            LogHelper.Current.Log(LogType.Warn, $"Output: {neuOutputF0}");
+            LogHelper.Current.Log(LogType.Warn, $"Output: {neuOutputMgc}");
+            LogHelper.Current.Log(LogType.Warn, $"Output: {neuOutputBap}");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {ModelDir}");
+            LogHelper.Current.Log(LogType.Warn, "WORLD:");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {neuOutputF0}");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {neuOutputMgc}");
+            LogHelper.Current.Log(LogType.Warn, $"Input: {neuOutputBap}");
+            LogHelper.Current.Log(LogType.Warn, $"Output: {synthOutput}");
+            LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
+
         }
 
         #endregion
