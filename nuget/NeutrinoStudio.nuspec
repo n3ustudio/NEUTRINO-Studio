@@ -17,6 +17,6 @@
     <tags>NEUTRINO</tags>
   </metadata>
   <files>
-    <file src="lib\net45\_._" target="lib\net45\_._" />
+    <file src="..\NeutrinoStudio.Shell\bin\Release\**" target="lib\net48\" />
   </files>
 </package>
