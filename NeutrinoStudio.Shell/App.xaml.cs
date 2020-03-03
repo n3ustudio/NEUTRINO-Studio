@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using MetroRadiance.UI;
+using NeuTask;
 using NeutrinoStudio.Shell.Helpers;
+using TaskStatus = NeuTask.TaskStatus;
 
 namespace NeutrinoStudio.Shell
 {
@@ -43,6 +45,16 @@ namespace NeutrinoStudio.Shell
                     MessageBoxButton.OK,
                     MessageBoxImage.Error,
                     MessageBoxResult.OK);
+            };
+
+            ThemeService.Current.ChangeTheme(Theme.Dark);
+            ThemeService.Current.ChangeAccent(Accent.Blue);
+
+            TaskManager.Current.PropertyChanged += (sender, args) =>
+            {
+                if (args.PropertyName != nameof(TaskManager.Current.Status)) return;
+                if (TaskManager.Current.Status == TaskStatus.Running) ThemeService.Current.ChangeAccent(Accent.Orange);
+                else ThemeService.Current.ChangeAccent(Accent.Blue);
             };
 
             // Show Window
