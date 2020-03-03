@@ -47,19 +47,20 @@ namespace NeutrinoStudio.Shell
                     MessageBoxResult.OK);
             };
 
-            ThemeService.Current.ChangeTheme(Theme.Dark);
-            ThemeService.Current.ChangeAccent(Accent.Blue);
+            // Show Window
+            if (MainWindow is null) MainWindow = new MainWindow();
+            MainWindow.Show();
+
+            Current.Dispatcher?.Invoke(() => ThemeService.Current.ChangeTheme(Theme.Dark));
+            Current.Dispatcher?.Invoke(() => ThemeService.Current.ChangeAccent(Accent.Blue));
 
             TaskManager.Current.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName != nameof(TaskManager.Current.Status)) return;
-                if (TaskManager.Current.Status == TaskStatus.Running) ThemeService.Current.ChangeAccent(Accent.Orange);
-                else ThemeService.Current.ChangeAccent(Accent.Blue);
+                if (TaskManager.Current.Status == TaskStatus.Running)
+                    Current.Dispatcher?.Invoke(() => ThemeService.Current.ChangeAccent(Accent.Orange));
+                else Current.Dispatcher?.Invoke(() => ThemeService.Current.ChangeAccent(Accent.Blue));
             };
-
-            // Show Window
-            if (MainWindow is null) MainWindow = new MainWindow();
-            MainWindow.Show();
         }
 
         protected override void OnStartup(StartupEventArgs e)
