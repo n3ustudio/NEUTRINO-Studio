@@ -21,7 +21,7 @@ namespace NeutrinoStudio.Core.Tasks
         /// <param name="inputDir">The input xml(musicxml) file.</param>
         /// <param name="monoOutputDir">The output mono lab file.</param>
         /// <param name="fullOutputDir">The output full lab file.</param>
-        public LabelTask(string workingDir, string inputDir, string monoOutputDir, string fullOutputDir)
+        public LabelTask(string workingDir, string inputDir, string fullOutputDir, string monoOutputDir)
         {
             _mainProcess = new Process
             {
