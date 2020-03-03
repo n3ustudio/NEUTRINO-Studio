@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NeutrinoStudio</id>
+    <version>0.1.0</version>
+    <title>NEUTRINO Studio</title>
+    <authors>Il Harper</authors>
+    <owners></owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/n3ustudio/NEUTRINO-Studio/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://n3ustudio.vbox.moe/</projectUrl>
+    <iconUrl>https://n3ustudio.vbox.moe/res/logo/logo_v1.ico</iconUrl>
+    <description>My package description.</description>
+    <summary>(WIP) GUI for NEUTRINO.</summary>
+    <copyright>2020 Il Harper</copyright>
+    <language>zh-CN</language>
+    <tags>NEUTRINO</tags>
+  </metadata>
+  <files>
+    <file src="lib\net45\_._" target="lib\net45\_._" />
+  </files>
+</package>
