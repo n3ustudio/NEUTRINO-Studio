@@ -43,14 +43,15 @@ namespace NeutrinoStudio.Shell.Views.Documents
         private void CheckUpdateButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             UpdateCheckButton.IsEnabled = false;
-            using (var mgr = new UpdateManager("https://n3ustudio.vbox.moe/res/releases"))
+            Task.Factory.StartNew(async () =>
             {
-                mgr.UpdateApp().ContinueWith(
-                    (task) =>
-                        Application.Current.Dispatcher != null && 
-                        Application.Current.Dispatcher.Invoke(() =>
-                            UpdateCheckButton.IsEnabled = true)).Start();
-            }
+                using (var mgr = new UpdateManager("https://n3ustudio.vbox.moe/res/releases"))
+                {
+                    await mgr.UpdateApp();
+                    Application.Current.Dispatcher?.Invoke(() =>
+                        UpdateCheckButton.IsEnabled = true);
+                }
+            });
         }
     }
 }
