@@ -34,7 +34,9 @@
                 <StackPanel HorizontalAlignment="Left">
                     <TextBlock Text="公告" Style="{DynamicResource NeuShellTitleTextStyle}"/>
                     <TextBlock Text="公告仍在建设当中。请留意查看n3ustudio.vbox.moe以获取最新消息。" Margin="0,6"/>
+                    <TextBlock Text="版本" Style="{DynamicResource NeuShellTitleTextStyle}"/>
                     <Button x:Name="UpdateCheckButton" HorizontalAlignment="Left" Margin="0,6" Content="检查更新" Click="CheckUpdateButtonBase_OnClick"/>
+                    <TextBlock x:Name="CurrentVersion" Margin="0,6"/>
                 </StackPanel>
             </Grid>
         </Grid>

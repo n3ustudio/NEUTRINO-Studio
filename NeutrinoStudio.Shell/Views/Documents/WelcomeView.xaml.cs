@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,16 +27,18 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public WelcomeView()
         {
             InitializeComponent();
+
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            CurrentVersion.Text = $"当前版本 {Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
         public IDockControl DockControl { get; set; }
         public string Header => "欢迎";
         public ImageSource Icon => null;
-
-        private void NoProjectButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
         private void CheckUpdateButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
