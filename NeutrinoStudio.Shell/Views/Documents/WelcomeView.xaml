@@ -20,7 +20,7 @@
                 <TextBlock Text="欢迎回来！" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
             </Grid>
             <Grid Margin="96,24" Grid.Row="1">
-                <Grid.ColumnDefinitions>
+                <!--<Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -30,6 +30,11 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Grid.Column="1">
                     <TextBlock Text="公告" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                </StackPanel>-->
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="公告" Style="{DynamicResource NeuShellTitleTextStyle}"/>
+                    <TextBlock Text="公告仍在建设当中。请留意查看n3ustudio.vbox.moe以获取最新消息。" Margin="0,6"/>
+                    <Button x:Name="UpdateCheckButton" HorizontalAlignment="Left" Margin="0,6" Content="检查更新" Click="CheckUpdateButtonBase_OnClick"/>
                 </StackPanel>
             </Grid>
         </Grid>

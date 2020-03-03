@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Squirrel;
 using YDock.Interface;
 
 namespace NeutrinoStudio.Shell.Views.Documents
@@ -33,6 +35,19 @@ namespace NeutrinoStudio.Shell.Views.Documents
         private void NoProjectButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void CheckUpdateButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            UpdateCheckButton.IsEnabled = false;
+            using (var mgr = new UpdateManager("https://n3ustudio.vbox.moe/res/releases"))
+            {
+                mgr.UpdateApp().ContinueWith(
+                    (task) =>
+                        Application.Current.Dispatcher != null && 
+                        Application.Current.Dispatcher.Invoke(() =>
+                            UpdateCheckButton.IsEnabled = true)).Start();
+            }
         }
     }
 }
