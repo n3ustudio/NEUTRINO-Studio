@@ -15,7 +15,7 @@
 
 ## ⚠ WORKING IN PROGRESS ⚠
 
-This project is currently working in progress. Contributes are welcome. If you have any questions or ideas, feel free to [create a new issue](https://github.com/n3ustudio/NEUTRINO-Studio/issues/new).
+This project is currently working in progress. Contributions are welcome. If you have any questions or ideas, feel free to [create a new issue](https://github.com/n3ustudio/NEUTRINO-Studio/issues/new).
 
 ## 🌟 Features
 
