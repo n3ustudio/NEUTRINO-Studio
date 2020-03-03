@@ -18,6 +18,7 @@
         IsRestoringWindowPlacement="True"
         TextOptions.TextFormattingMode="Display"
         SnapsToDevicePixels="True" Height="720" Width="1280"
+        Title="NEUTRINO Studio"
         MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen">
 
     <chrome:WindowChrome.Instance>
