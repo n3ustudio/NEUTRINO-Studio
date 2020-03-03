@@ -19,6 +19,7 @@
         TextOptions.TextFormattingMode="Display"
         SnapsToDevicePixels="True" Height="720" Width="1280"
         Title="NEUTRINO Studio"
+        Icon="Assets/logo_v1.ico"
         MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen">
 
     <chrome:WindowChrome.Instance>

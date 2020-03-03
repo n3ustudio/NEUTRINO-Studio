@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("NeutrinoStudio.Shell")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Neutrino Studio")]
+[assembly: AssemblyDescription("(WIP) GUI for NEUTRINO.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NeutrinoStudio.Shell")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCompany("Il Harper")]
+[assembly: AssemblyProduct("Neutrino Studio")]
+[assembly: AssemblyCopyright("Copyright © 2020 Il Harper")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
