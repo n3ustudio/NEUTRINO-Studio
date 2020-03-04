@@ -10,3 +10,6 @@
 [submodule "World.NET"]
 	path = World.NET
 	url = https://github.com/n3ustudio/World.NET.git
+[submodule "World.UI"]
+	path = World.UI
+	url = https://github.com/n3ustudio/World.UI.git
