@@ -7,3 +7,6 @@
 [submodule "NeuTask"]
 	path = NeuTask
 	url = https://github.com/n3ustudio/NeuTask.git
+[submodule "World.NET"]
+	path = World.NET
+	url = https://github.com/n3ustudio/World.NET.git
