@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -175,7 +174,6 @@ namespace NeutrinoStudio.Shell
                     Point rel = element.PointFromScreen(p);
                     if (rel.X >= 0 && rel.X <= element.ActualWidth && rel.Y >= 0 && rel.Y <= element.ActualHeight)
                     {
-                        Debug.WriteLine(element.Name);
                         return IntPtr.Zero;
                     }
                 }
