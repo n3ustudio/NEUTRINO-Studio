@@ -51,50 +51,44 @@ namespace NeutrinoStudio.Shell
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenWelcomeView,
-                (sender, args) => _welcomeView.DockControl.Show(),
+                (sender, args) => WelcomeView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenProjectView,
-                (sender, args) => _projectView.DockControl.Show(),
+                (sender, args) => ProjectView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenSettingsView,
-                (sender, args) => _settingsView.DockControl.Show(),
+                (sender, args) => SettingsView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenDebugView,
-                (sender, args) => _debugView.DockControl.Show(),
+                (sender, args) => DebugView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenLogView,
-                (sender, args) => _logView.DockControl.Show(),
+                (sender, args) => LogView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.OpenTaskView,
-                (sender, args) => _taskView.DockControl.Show(),
+                (sender, args) => TaskView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
             #endregion
 
             #region Document Register
 
-            _welcomeView = new WelcomeView();
-            _logView = new LogView();
-            _debugView = new DebugView();
-            _settingsView = new SettingsView();
-            _projectView = new ProjectView();
-            _taskView = new TaskView();
-            DockManager.RegisterDocument(_welcomeView);
-            DockManager.RegisterDock(_logView, DockSide.Bottom);
-            DockManager.RegisterDocument(_debugView);
-            DockManager.RegisterDocument(_settingsView);
-            DockManager.RegisterDocument(_projectView);
-            DockManager.RegisterDock(_taskView, DockSide.Right);
+            DockManager.RegisterDocument(WelcomeView.Current);
+            DockManager.RegisterDock(LogView.Current, DockSide.Bottom);
+            DockManager.RegisterDocument(DebugView.Current);
+            DockManager.RegisterDocument(SettingsView.Current);
+            DockManager.RegisterDocument(ProjectView.Current);
+            DockManager.RegisterDock(TaskView.Current, DockSide.Right);
 
             #endregion
         }
@@ -118,17 +112,6 @@ namespace NeutrinoStudio.Shell
             ConfigHelper.SaveConfig();
         }
 
-        #region Views
-
-        private readonly WelcomeView _welcomeView;
-        private readonly LogView _logView;
-        private readonly DebugView _debugView;
-        private readonly SettingsView _settingsView;
-        private readonly ProjectView _projectView;
-        private readonly TaskView _taskView;
-
-        #endregion
-
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             IntPtr hwnd = new WindowInteropHelper(this).Handle;
@@ -151,7 +134,7 @@ namespace NeutrinoStudio.Shell
             }
             else
             {
-                _welcomeView.DockControl.Show();
+                WelcomeView.Current.DockControl.Show();
             }
         }
 

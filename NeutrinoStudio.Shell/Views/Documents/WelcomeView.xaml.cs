@@ -31,6 +31,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             Loaded += OnLoaded;
         }
 
+        public static WelcomeView Current = new WelcomeView();
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             CurrentVersion.Text = $"当前版本 {Assembly.GetExecutingAssembly().GetName().Version}";

@@ -37,6 +37,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             DataContext = this;
         }
 
+        public static ProjectView Current = new ProjectView();
+
         #region DataContext
 
         private InputFormat _inputFormat = InputFormat.Undefined;

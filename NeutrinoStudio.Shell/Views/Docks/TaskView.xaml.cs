@@ -27,6 +27,8 @@ namespace NeutrinoStudio.Shell.Views.Docks
             InitializeComponent();
         }
 
+        public static TaskView Current = new TaskView();
+
         public IDockControl DockControl { get; set; }
         public string Header => "任务";
         public ImageSource Icon => null;

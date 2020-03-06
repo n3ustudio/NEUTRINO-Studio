@@ -37,6 +37,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             Loaded += OnLoaded;
         }
 
+        public static SettingsView Current = new SettingsView();
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             NeutrinoDir = ConfigHelper.Current.NeutrinoDir ?? "未配置。这将导致生成错误。";

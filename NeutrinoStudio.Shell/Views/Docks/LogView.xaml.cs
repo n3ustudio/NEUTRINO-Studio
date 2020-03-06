@@ -27,6 +27,8 @@ namespace NeutrinoStudio.Shell.Views.Docks
             InitializeComponent();
         }
 
+        public static LogView Current = new LogView();
+
         public IDockControl DockControl { get; set; }
         public string Header => "日志";
         public ImageSource Icon => null;

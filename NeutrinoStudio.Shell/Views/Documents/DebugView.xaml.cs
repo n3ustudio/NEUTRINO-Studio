@@ -28,6 +28,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             DataContext = this;
         }
 
+        public static DebugView Current = new DebugView();
+
         #region DataContext
 
         public List<string> iconList => Utilities.Controls.Icon.IconList;
