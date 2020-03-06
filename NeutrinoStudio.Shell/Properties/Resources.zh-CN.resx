@@ -121,60 +121,60 @@
     <value>NEUTRINO Studio</value>
   </data>
   <data name="Menu_About" xml:space="preserve">
-    <value>About NEUTRINO Studio</value>
+    <value>关于 NEUTRINO Studio</value>
   </data>
   <data name="Menu_Debug" xml:space="preserve">
-    <value>_Debug</value>
+    <value>调试(_D)</value>
   </data>
   <data name="Menu_Edit" xml:space="preserve">
-    <value>_Edit</value>
+    <value>编辑(_E)</value>
   </data>
   <data name="Menu_File" xml:space="preserve">
-    <value>_File</value>
+    <value>文件(_F)</value>
   </data>
   <data name="Menu_Generate" xml:space="preserve">
-    <value>_Generate</value>
+    <value>生成(_G)</value>
   </data>
   <data name="Menu_Help" xml:space="preserve">
-    <value>_Help</value>
+    <value>帮助(_H)</value>
   </data>
   <data name="Menu_Log" xml:space="preserve">
-    <value>_Log</value>
+    <value>日志(_L)</value>
   </data>
   <data name="Menu_Monitor" xml:space="preserve">
-    <value>_Monitor</value>
+    <value>监视(_M)</value>
   </data>
   <data name="Menu_Project" xml:space="preserve">
-    <value>_Project</value>
+    <value>项目(_P)</value>
   </data>
   <data name="Menu_Queue" xml:space="preserve">
-    <value>_Queue</value>
+    <value>队列(_Q)</value>
   </data>
   <data name="Menu_Quit" xml:space="preserve">
-    <value>_Quit</value>
+    <value>退出(_Q)</value>
   </data>
   <data name="Menu_Run" xml:space="preserve">
-    <value>_Run</value>
+    <value>启动(_R)</value>
   </data>
   <data name="Menu_Settings" xml:space="preserve">
-    <value>_Settings</value>
+    <value>设置(_S)</value>
   </data>
   <data name="Menu_Stop" xml:space="preserve">
-    <value>_Stop</value>
+    <value>停止(_S)</value>
   </data>
   <data name="Menu_Task" xml:space="preserve">
-    <value>Task(_B)</value>
+    <value>任务(_B)</value>
   </data>
   <data name="Menu_TaskView" xml:space="preserve">
-    <value>_Task</value>
+    <value>任务(_T)</value>
   </data>
   <data name="Menu_Tools" xml:space="preserve">
-    <value>_Tools</value>
+    <value>工具(_T)</value>
   </data>
   <data name="Menu_View" xml:space="preserve">
-    <value>_View</value>
+    <value>视图(_V)</value>
   </data>
   <data name="Menu_Welcome" xml:space="preserve">
-    <value>_Welcome</value>
+    <value>欢迎(_W)</value>
   </data>
 </root>

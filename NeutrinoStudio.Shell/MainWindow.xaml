@@ -9,6 +9,7 @@
         xmlns:yDock="clr-namespace:YDock;assembly=YDock"
         xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
         xmlns:commands="clr-namespace:NeutrinoStudio.Shell.Commands"
+        xmlns:props="clr-namespace:NeutrinoStudio.Shell.Properties"
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         Background="{DynamicResource ThemeBrushKey}"
@@ -49,14 +50,14 @@
                 </controls:CaptionIcon>
                 <Menu x:Name="Wnd2" Grid.Column="1" Background="{x:Null}" Foreground="White"
                       VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <MenuItem Header="文件(_F)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_File}">
                         <MenuItem Command="New" Foreground="#FF212121"/>
                         <MenuItem Command="Open" Foreground="#FF212121"/>
                         <MenuItem Command="Close" Foreground="#FF212121"/>
                         <Separator/>
                         <MenuItem Command="{x:Static commands:UICommands.ExitApp}" Foreground="#FF212121"/>
                     </MenuItem>
-                    <MenuItem Header="编辑(_E)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_Edit}">
                         <MenuItem Command="Undo" Foreground="#FF212121"/>
                         <MenuItem Command="Redo" Foreground="#FF212121"/>
                         <Separator/>
@@ -67,14 +68,14 @@
                         <MenuItem Command="Find" Foreground="#FF212121"/>
                         <MenuItem Command="Replace" Foreground="#FF212121"/>
                     </MenuItem>
-                    <MenuItem Header="视图(_V)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_View}">
                         <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
                     </MenuItem>
-                    <MenuItem Header="任务(_B)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_Task}">
                         <MenuItem Command="{x:Static commands:UICommands.Generate}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.Monitor}" Foreground="#FF212121"/>
                         <Separator/>
@@ -82,18 +83,18 @@
                         <MenuItem Command="{x:Static commands:UICommands.Run}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.Stop}" Foreground="#FF212121"/>
                     </MenuItem>
-                    <MenuItem Header="工具(_T)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_Tools}">
                         <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
                     </MenuItem>
-                    <MenuItem Header="帮助(_H)">
+                    <MenuItem Header="{x:Static props:Resources.Menu_Help}">
                         <MenuItem Command="Help" Foreground="#FF212121"/>
                         <Separator/>
-                        <MenuItem Header="关于 NEUTRINO Studio" Foreground="#FF212121"/>
+                        <MenuItem Header="{x:Static props:Resources.Menu_About}" Foreground="#FF212121"/>
                     </MenuItem>
                 </Menu>
                 <Grid Grid.Column="2" HorizontalAlignment="Left" Margin="12,2"
                       Background="{DynamicResource BackgroundBrushKey}" VerticalAlignment="Center">
-                    <TextBlock Text="NEUTRINO Studio" Margin="8,4" FontWeight="Medium"/>
+                    <TextBlock Text="{x:Static props:Resources.Common_AppName}" Margin="8,4" FontWeight="Medium"/>
                 </Grid>
                 <controls:SystemButtons Grid.Column="3" x:Name="Wnd3"
                                         VerticalAlignment="Top" />

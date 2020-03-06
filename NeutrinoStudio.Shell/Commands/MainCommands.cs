@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using NeutrinoStudio.Shell.Properties;
 
 namespace NeutrinoStudio.Shell.Commands
 {
@@ -13,7 +14,7 @@ namespace NeutrinoStudio.Shell.Commands
     {
 
         public static RoutedUICommand ExitApp { get; } = new RoutedUICommand(
-            "退出(_Q)",
+            Resources.Menu_Quit,
             "Exit",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -22,12 +23,12 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand OpenWelcomeView { get; } = new RoutedUICommand(
-            "欢迎(_W)",
+            Resources.Menu_Welcome,
             "Welcome",
             typeof(UICommands));
 
         public static RoutedUICommand OpenProjectView { get; } = new RoutedUICommand(
-            "项目(_P)",
+            Resources.Menu_Project,
             "Project",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -36,7 +37,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand OpenSettingsView { get; } = new RoutedUICommand(
-            "设置(_S)",
+            Resources.Menu_Settings,
             "Settings",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -45,12 +46,12 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand OpenDebugView { get; } = new RoutedUICommand(
-            "调试(_D)",
+            Resources.Menu_Debug,
             "Debug",
             typeof(UICommands));
 
         public static RoutedUICommand OpenLogView { get; } = new RoutedUICommand(
-            "日志(_L)",
+            Resources.Menu_Log,
             "Log",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -59,7 +60,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand OpenTaskView { get; } = new RoutedUICommand(
-            "任务(_T)",
+            Resources.Menu_TaskView,
             "Task",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -68,7 +69,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand Monitor { get; } = new RoutedUICommand(
-            "监视(_M)",
+            Resources.Menu_Monitor,
             "Monitor",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -77,7 +78,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand Generate { get; } = new RoutedUICommand(
-            "生成(_G)",
+            Resources.Menu_Generate,
             "Generate",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -86,7 +87,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand Queue { get; } = new RoutedUICommand(
-            "队列(_Q)",
+            Resources.Menu_Queue,
             "Queue",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -95,7 +96,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand Run { get; } = new RoutedUICommand(
-            "启动(_R)",
+            Resources.Menu_Run,
             "Run",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()
@@ -104,7 +105,7 @@ namespace NeutrinoStudio.Shell.Commands
             }));
 
         public static RoutedUICommand Stop { get; } = new RoutedUICommand(
-            "停止(_S)",
+            Resources.Menu_Stop,
             "Stop",
             typeof(UICommands),
             new InputGestureCollection(new List<InputGesture>()

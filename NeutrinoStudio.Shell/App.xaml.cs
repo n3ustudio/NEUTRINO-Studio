@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -46,6 +47,8 @@ namespace NeutrinoStudio.Shell
                     MessageBoxImage.Error,
                     MessageBoxResult.OK);
             };
+
+            Shell.Properties.Resources.Culture = CultureInfo.CurrentUICulture;
 
             // Show Window
             if (MainWindow is null) MainWindow = new MainWindow();
