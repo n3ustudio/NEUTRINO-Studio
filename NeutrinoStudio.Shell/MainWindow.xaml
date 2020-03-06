@@ -34,79 +34,74 @@
             <RowDefinition Height="23" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0"
-                controls:MetroWindow.IsCaptionBar="True">
+        <Border Grid.Row="0" controls:MetroWindow.IsCaptionBar="True" Height="0"/>
+
+        <Border Grid.Row="0" x:Name="WndCaption">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <controls:CaptionIcon Grid.Column="0">
+                <controls:CaptionIcon x:Name="Wnd1" Grid.Column="0" Padding="8,6,4,6" VerticalAlignment="Center">
                     <u:Icon Width="20" Height="20" Type="Assembly" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </controls:CaptionIcon>
-                <TextBlock Grid.Column="1"
-                           Text="NEUTRINO Studio"
-                           TextTrimming="CharacterEllipsis"
-                           Foreground="{DynamicResource ForegroundBrushKey}"
-                           FontFamily="Segoe UI Light"
-                           FontSize="18"
-                           Margin="3,0,0,0"
-                           VerticalAlignment="Center" />
-                <controls:SystemButtons Grid.Column="2"
+                <Menu x:Name="Wnd2" Grid.Column="1" Background="{x:Null}" Foreground="White"
+                      VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <MenuItem Header="文件(_F)">
+                        <MenuItem Command="New" Foreground="#FF212121"/>
+                        <MenuItem Command="Open" Foreground="#FF212121"/>
+                        <MenuItem Command="Close" Foreground="#FF212121"/>
+                        <Separator/>
+                        <MenuItem Command="{x:Static commands:UICommands.ExitApp}" Foreground="#FF212121"/>
+                    </MenuItem>
+                    <MenuItem Header="编辑(_E)">
+                        <MenuItem Command="Undo" Foreground="#FF212121"/>
+                        <MenuItem Command="Redo" Foreground="#FF212121"/>
+                        <Separator/>
+                        <MenuItem Command="Cut" Foreground="#FF212121"/>
+                        <MenuItem Command="Copy" Foreground="#FF212121"/>
+                        <MenuItem Command="Paste" Foreground="#FF212121"/>
+                        <Separator/>
+                        <MenuItem Command="Find" Foreground="#FF212121"/>
+                        <MenuItem Command="Replace" Foreground="#FF212121"/>
+                    </MenuItem>
+                    <MenuItem Header="视图(_V)">
+                        <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
+                    </MenuItem>
+                    <MenuItem Header="任务(_B)">
+                        <MenuItem Command="{x:Static commands:UICommands.Generate}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.Monitor}" Foreground="#FF212121"/>
+                        <Separator/>
+                        <MenuItem Command="{x:Static commands:UICommands.Queue}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.Run}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.Stop}" Foreground="#FF212121"/>
+                    </MenuItem>
+                    <MenuItem Header="工具(_T)">
+                        <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
+                    </MenuItem>
+                    <MenuItem Header="帮助(_H)">
+                        <MenuItem Command="Help" Foreground="#FF212121"/>
+                        <Separator/>
+                        <MenuItem Header="关于 NEUTRINO Studio" Foreground="#FF212121"/>
+                    </MenuItem>
+                </Menu>
+                <Grid Grid.Column="2" HorizontalAlignment="Left" Margin="12,2"
+                      Background="{DynamicResource BackgroundBrushKey}" VerticalAlignment="Center">
+                    <TextBlock Text="NEUTRINO Studio" Margin="8,4" FontWeight="Medium"/>
+                </Grid>
+                <controls:SystemButtons Grid.Column="3" x:Name="Wnd3"
                                         VerticalAlignment="Top" />
             </Grid>
         </Border>
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Menu Background="{x:Null}" Foreground="White">
-                <MenuItem Header="文件(_F)">
-                    <MenuItem Command="New" Foreground="#FF212121"/>
-                    <MenuItem Command="Open" Foreground="#FF212121"/>
-                    <MenuItem Command="Close" Foreground="#FF212121"/>
-                    <Separator/>
-                    <MenuItem Command="{x:Static commands:UICommands.ExitApp}" Foreground="#FF212121"/>
-                </MenuItem>
-                <MenuItem Header="编辑(_E)">
-                    <MenuItem Command="Undo" Foreground="#FF212121"/>
-                    <MenuItem Command="Redo" Foreground="#FF212121"/>
-                    <Separator/>
-                    <MenuItem Command="Cut" Foreground="#FF212121"/>
-                    <MenuItem Command="Copy" Foreground="#FF212121"/>
-                    <MenuItem Command="Paste" Foreground="#FF212121"/>
-                    <Separator/>
-                    <MenuItem Command="Find" Foreground="#FF212121"/>
-                    <MenuItem Command="Replace" Foreground="#FF212121"/>
-                </MenuItem>
-                <MenuItem Header="视图(_V)">
-                    <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
-                </MenuItem>
-                <MenuItem Header="任务(_B)">
-                    <MenuItem Command="{x:Static commands:UICommands.Generate}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.Monitor}" Foreground="#FF212121"/>
-                    <Separator/>
-                    <MenuItem Command="{x:Static commands:UICommands.Queue}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.Run}" Foreground="#FF212121"/>
-                    <MenuItem Command="{x:Static commands:UICommands.Stop}" Foreground="#FF212121"/>
-                </MenuItem>
-                <MenuItem Header="工具(_T)">
-                    <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
-                </MenuItem>
-                <MenuItem Header="帮助(_H)">
-                    <MenuItem Command="Help" Foreground="#FF212121"/>
-                    <Separator/>
-                    <MenuItem Header="关于 NEUTRINO Studio" Foreground="#FF212121"/>
-                </MenuItem>
-            </Menu>
-            <yDock:DockManager Grid.Row="1" x:Name="DockManager" Margin="0,0,0,-0.5"/>
+        <Grid Grid.Row="1" Margin="0">
+            <yDock:DockManager x:Name="DockManager" Margin="0"/>
         </Grid>
 
         <Grid Grid.Row="2"

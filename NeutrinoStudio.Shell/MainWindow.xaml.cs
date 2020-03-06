@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,14 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using NeutrinoStudio.Shell.Commands;
+using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.Views.Docks;
 using NeutrinoStudio.Shell.Views.Documents;
 using YDock;
@@ -125,6 +128,9 @@ namespace NeutrinoStudio.Shell
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hwnd = new WindowInteropHelper(this).Handle;
+            HwndSource.FromHwnd(hwnd).AddHook(new HwndSourceHook(WndProc));
+            wndList = new List<FrameworkElement>() { Wnd1, Wnd2, Wnd3 };
 
             if (File.Exists(SettingFileName))
             {
@@ -145,5 +151,39 @@ namespace NeutrinoStudio.Shell
                 _welcomeView.DockControl.Show();
             }
         }
+
+        #region CaptionBar Hook
+
+        private List<FrameworkElement> wndList;
+
+        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg == WM_NCHITTEST)
+            {
+                if (wndList is null) return IntPtr.Zero;
+                Point p = new Point();
+                int pInt = lParam.ToInt32();
+                p.X = (pInt << 16) >> 16;
+                p.Y = pInt >> 16;
+                if (WndCaption.PointFromScreen(p).Y > WndCaption.ActualHeight) return IntPtr.Zero;
+                foreach (FrameworkElement element in wndList)
+                {
+                    Point rel = element.PointFromScreen(p);
+                    if (rel.X >= 0 && rel.X <= element.ActualWidth && rel.Y >= 0 && rel.Y <= element.ActualHeight)
+                    {
+                        Debug.WriteLine(element.Name);
+                        return IntPtr.Zero;
+                    }
+                }
+                handled = true;
+                return new IntPtr(2);
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private const int WM_NCHITTEST = 0x0084;
+
+        #endregion
     }
 }
