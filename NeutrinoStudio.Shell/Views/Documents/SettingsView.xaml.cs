@@ -39,7 +39,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            NeutrinoDir = ConfigHelper.GetAppSetting(nameof(NeutrinoDir)) ?? "未配置。这将导致生成错误。";
+            NeutrinoDir = ConfigHelper.Current.NeutrinoDir ?? "未配置。这将导致生成错误。";
         }
 
         #region DataContext
@@ -92,13 +92,14 @@ namespace NeutrinoStudio.Shell.Views.Documents
                     MessageBoxResult.OK);
                 return;
             }
-            ConfigHelper.UpdateAppSetting(nameof(NeutrinoDir), dir);
+
+            ConfigHelper.Current.NeutrinoDir = dir;
             NeutrinoDir = dir;
         }
 
         private void OpenModelsButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            string dir = ConfigHelper.GetAppSetting(nameof(NeutrinoDir));
+            string dir = ConfigHelper.Current.NeutrinoDir;
             if ((!string.IsNullOrEmpty(dir)) && Directory.Exists(dir))
                 Process.Start(Path.Combine(dir, "model/"));
             else

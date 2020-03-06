@@ -100,7 +100,9 @@ namespace NeutrinoStudio.Shell
             #endregion
         }
 
-        private static readonly string SettingFileName = Path.Combine(Environment.CurrentDirectory, "settings/layout.xml");
+        private static readonly string SettingFileName = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "Il Harper\\Neutrino Studio\\layout.xml");
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
@@ -113,6 +115,8 @@ namespace NeutrinoStudio.Shell
             doc.Add(rootNode);
             doc.Save(SettingFileName);
             DockManager.Dispose();
+
+            ConfigHelper.SaveConfig();
         }
 
         #region Views

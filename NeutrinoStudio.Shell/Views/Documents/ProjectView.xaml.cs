@@ -380,12 +380,12 @@ namespace NeutrinoStudio.Shell.Views.Documents
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
 
             TaskManager.Current.Push(new LabelTask(
-                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                ConfigHelper.Current.NeutrinoDir,
                 InputDir,
                 neuInputFull,
                 labelOutput));
             TaskManager.Current.Push(new SynthTask(
-                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                ConfigHelper.Current.NeutrinoDir,
                 neuInputFull,
                 neuInputTiming,
                 neuOutputF0,
@@ -393,7 +393,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 neuOutputBap,
                 ModelDir));
             TaskManager.Current.Push(new OutputTask(
-                ConfigHelper.GetAppSetting("NeutrinoDir"),
+                ConfigHelper.Current.NeutrinoDir,
                 neuOutputF0,
                 neuOutputMgc,
                 neuOutputBap,

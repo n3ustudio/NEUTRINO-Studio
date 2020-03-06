@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,43 +16,67 @@ namespace NeutrinoStudio.Shell.Helpers
     public static class ConfigHelper
     {
 
-        private static readonly Configuration Config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        private static Config _current = OpenConfig();
 
         /// <summary>
-        /// Get app setting.
+        /// The current config.
         /// </summary>
-        /// <param name="key">Key of the setting.</param>
-        /// <returns></returns>
-        public static string GetAppSetting(string key)
+        public static Config Current
         {
-            if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
+            get => _current;
+            set => _current = value;
+        }
+
+        private static Config OpenConfig()
+        {
+            Directory.CreateDirectory(Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Il Harper\\Neutrino Studio"));
+            FileStream fs = new FileStream(
+                Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "Il Harper\\Neutrino Studio\\config.dat"), FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite);
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
             {
-                string value = Config.AppSettings.Settings[key].Value;
-                return value;
+                Config config = formatter.Deserialize(fs) as Config;
+                fs.Close();
+                return config;
             }
-            else
+            catch (SerializationException)
             {
-                return null;
+                fs.Close();
+                return new Config();
             }
         }
 
         /// <summary>
-        /// Update app setting.
+        /// Save the config.
         /// </summary>
-        /// <param name="key">Key of the setting.</param>
-        /// <param name="value">Value of the setting.</param>
-        public static void UpdateAppSetting(string key, string value)
+        public static void SaveConfig()
         {
-            if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
-            {
-                Config.AppSettings.Settings[key].Value = value;
-                Config.Save(ConfigurationSaveMode.Modified);
-            }
-            else
-            {
-                Config.AppSettings.Settings.Add(key, value);
-                Config.Save(ConfigurationSaveMode.Modified);
-            }
+            FileStream fs = new FileStream(
+                Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "Il Harper\\Neutrino Studio\\config.dat"), FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(fs, Current);
+            fs.Close();
         }
+
+    }
+
+    [Serializable]
+    public class Config
+    {
+
+        private string _neutrinoDir = null;
+
+        public string NeutrinoDir
+        {
+            get => _neutrinoDir;
+            set => _neutrinoDir = value;
+        }
+
     }
 }
