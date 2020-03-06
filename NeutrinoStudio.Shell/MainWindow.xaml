@@ -71,7 +71,6 @@
                     <MenuItem Header="{x:Static props:Resources.Menu_View}">
                         <MenuItem Command="{x:Static commands:UICommands.OpenWelcomeView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenProjectView}" Foreground="#FF212121"/>
-                        <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenSettingsView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenDebugView}" Foreground="#FF212121"/>
                     </MenuItem>
@@ -84,6 +83,7 @@
                         <MenuItem Command="{x:Static commands:UICommands.Stop}" Foreground="#FF212121"/>
                     </MenuItem>
                     <MenuItem Header="{x:Static props:Resources.Menu_Tools}">
+                        <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenLogView}" Foreground="#FF212121"/>
                     </MenuItem>
                     <MenuItem Header="{x:Static props:Resources.Menu_Help}">
