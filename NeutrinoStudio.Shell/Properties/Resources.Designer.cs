@@ -239,5 +239,50 @@ namespace NeutrinoStudio.Shell.Properties {
                 return ResourceManager.GetString("Menu_Welcome", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Project 的本地化字符串。
+        /// </summary>
+        public static string ProjectView_Title {
+            get {
+                return ResourceManager.GetString("ProjectView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Settings 的本地化字符串。
+        /// </summary>
+        public static string SettingsView_Titile {
+            get {
+                return ResourceManager.GetString("SettingsView_Titile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Task 的本地化字符串。
+        /// </summary>
+        public static string TaskView_Title {
+            get {
+                return ResourceManager.GetString("TaskView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Welcome 的本地化字符串。
+        /// </summary>
+        public static string WelcomeView_Title {
+            get {
+                return ResourceManager.GetString("WelcomeView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Welcome Back! 的本地化字符串。
+        /// </summary>
+        public static string WelcomeView_WelcomeBack {
+            get {
+                return ResourceManager.GetString("WelcomeView_WelcomeBack", resourceCulture);
+            }
+        }
     }
 }
