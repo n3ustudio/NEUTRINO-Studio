@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
+             xmlns:props="clr-namespace:NeutrinoStudio.Shell.Properties"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -17,7 +18,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
-                <TextBlock Text="欢迎回来！" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
+                <TextBlock Text="{x:Static props:Resources.WelcomeView_WelcomeBack}" Style="{DynamicResource NeuShellHeaderTextStyle}"/>
             </Grid>
             <Grid Margin="96,24" Grid.Row="1">
                 <!--<Grid.ColumnDefinitions>

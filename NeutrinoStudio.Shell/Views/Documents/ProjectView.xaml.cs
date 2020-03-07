@@ -166,7 +166,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
         #endregion
 
         public IDockControl DockControl { get; set; }
-        public string Header => "项目";
+        public string Header => Properties.Resources.ProjectView_Title;
         public ImageSource Icon => null;
 
         public event PropertyChangedEventHandler PropertyChanged;

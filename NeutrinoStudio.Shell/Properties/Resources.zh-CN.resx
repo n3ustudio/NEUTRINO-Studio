@@ -177,4 +177,19 @@
   <data name="Menu_Welcome" xml:space="preserve">
     <value>欢迎(_W)</value>
   </data>
+  <data name="ProjectView_Title" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="SettingsView_Titile" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="TaskView_Title" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="WelcomeView_Title" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="WelcomeView_WelcomeBack" xml:space="preserve">
+    <value>欢迎回来！</value>
+  </data>
 </root>

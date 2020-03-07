@@ -30,7 +30,7 @@ namespace NeutrinoStudio.Shell.Views.Docks
         public static TaskView Current = new TaskView();
 
         public IDockControl DockControl { get; set; }
-        public string Header => "任务";
+        public string Header => Properties.Resources.TaskView_Title;
         public ImageSource Icon => null;
 
         private void StopButtonBase_OnClick(object sender, RoutedEventArgs e)

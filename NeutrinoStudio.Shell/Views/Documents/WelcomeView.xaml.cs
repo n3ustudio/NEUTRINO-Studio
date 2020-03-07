@@ -39,7 +39,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
         }
 
         public IDockControl DockControl { get; set; }
-        public string Header => "欢迎";
+        public string Header => Properties.Resources.WelcomeView_Title;
         public ImageSource Icon => null;
 
         private void CheckUpdateButtonBase_OnClick(object sender, RoutedEventArgs e)
