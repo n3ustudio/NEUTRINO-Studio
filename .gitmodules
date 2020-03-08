@@ -13,3 +13,9 @@
 [submodule "World.UI"]
 	path = World.UI
 	url = https://github.com/n3ustudio/World.UI.git
+[submodule "Scrosser"]
+	path = Scrosser
+	url = https://github.com/n3ustudio/Scrosser.git
+[submodule "Musiqual"]
+	path = Musiqual
+	url = https://github.com/n3ustudio/Musiqual.git
