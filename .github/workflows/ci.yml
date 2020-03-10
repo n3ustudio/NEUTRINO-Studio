@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+      branches:
+      - '*'
+
+jobs:
+  ci_build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodule: 'recursive'
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v1
+    - name: Restore NuGet Package
+      run: nuget restore NeutrinoStudio.sln
+    - name: Prepare MSBuild
+      uses: microsoft/setup-msbuild@v1.0.0
+    - name: Build Project
+      run: msbuild NeutrinoStudio.sln /p:Configuration=Release /verbosity:quiet
