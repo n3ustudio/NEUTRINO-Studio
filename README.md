@@ -3,6 +3,7 @@
 
   <p style="font-size: 20px;">GUI for NEUTRINO.</p>
 
+![Build](https://img.shields.io/github/workflow/status/n3ustudio/NEUTRINO-Studio/CI?style=flat-square)
 ![Version](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fn3ustudio.vbox.moe%2Fres%2Fbadge.json)
 ![Language](https://img.shields.io/badge/language-csharp-brightgreen?style=flat-square)
 ![I18N](https://img.shields.io/badge/i18n-preparing-lightgrey?style=flat-square)
