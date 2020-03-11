@@ -27,12 +27,15 @@ namespace NeutrinoStudio.Shell.Helpers
             set => _current = value;
         }
 
-        public static readonly string UserDataFolder = Path.Combine(
+        public static string UserDataFolder = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "Il Harper\\Neutrino Studio");
 
         private static Config OpenConfig()
         {
+            if (UserDataFolder is null) UserDataFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Il Harper\\Neutrino Studio");
             Directory.CreateDirectory(UserDataFolder);
             FileStream fs = new FileStream(
                 Path.Combine(UserDataFolder, "config.dat"), FileMode.OpenOrCreate, FileAccess.Read,
