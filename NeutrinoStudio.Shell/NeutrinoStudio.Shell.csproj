@@ -130,6 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.zh-CN.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Navigator.cs" />
     <Compile Include="Views\Docks\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>
