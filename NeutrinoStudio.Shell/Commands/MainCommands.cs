@@ -121,5 +121,14 @@ namespace NeutrinoStudio.Shell.Commands
             {
                 new KeyGesture(Key.N, ModifierKeys.Control, "Ctrl+N")
             }));
+
+        public static RoutedUICommand OpenWorldView { get; } = new RoutedUICommand(
+            "WORLD",
+            "WORLD",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+
+            }));
     }
 }

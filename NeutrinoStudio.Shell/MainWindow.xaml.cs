@@ -18,8 +18,10 @@ using System.Windows.Shapes;
 using System.Xml.Linq;
 using NeutrinoStudio.Shell.Commands;
 using NeutrinoStudio.Shell.Helpers;
+using NeutrinoStudio.Shell.ViewModels;
 using NeutrinoStudio.Shell.Views.Docks;
 using NeutrinoStudio.Shell.Views.Documents;
+using World.UI.Views;
 using YDock;
 using YDock.Enum;
 using YDock.Interface;
@@ -35,6 +37,9 @@ namespace NeutrinoStudio.Shell
         public MainWindow()
         {
             InitializeComponent();
+
+            _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, Navigator.Current.Scross,
+                Navigator.Current.EditMode);
 
             Loaded += OnLoaded;
 
@@ -84,6 +89,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => NavigatorView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenWorldView,
+                (sender, args) => _worldView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -95,9 +105,16 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDocument(ProjectView.Current);
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
+            DockManager.RegisterDock(_worldView, DockSide.Top);
 
             #endregion
         }
+
+        #region Views
+
+        private WorldView _worldView;
+
+        #endregion
 
         private static readonly string SettingFileName = Path.Combine(ConfigHelper.UserDataFolder, "layout.xml");
 
