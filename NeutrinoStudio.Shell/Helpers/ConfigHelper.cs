@@ -27,15 +27,16 @@ namespace NeutrinoStudio.Shell.Helpers
             set => _current = value;
         }
 
+        public static readonly string UserDataFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "Il Harper\\Neutrino Studio");
+
         private static Config OpenConfig()
         {
-            Directory.CreateDirectory(Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "Il Harper\\Neutrino Studio"));
+            Directory.CreateDirectory(UserDataFolder);
             FileStream fs = new FileStream(
-                Path.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                    "Il Harper\\Neutrino Studio\\config.dat"), FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite);
+                Path.Combine(UserDataFolder, "config.dat"), FileMode.OpenOrCreate, FileAccess.Read,
+                FileShare.ReadWrite);
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
@@ -56,9 +57,8 @@ namespace NeutrinoStudio.Shell.Helpers
         public static void SaveConfig()
         {
             FileStream fs = new FileStream(
-                Path.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                    "Il Harper\\Neutrino Studio\\config.dat"), FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+                Path.Combine(UserDataFolder, "config.dat"), FileMode.OpenOrCreate, FileAccess.ReadWrite,
+                FileShare.ReadWrite);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(fs, Current);
             fs.Close();

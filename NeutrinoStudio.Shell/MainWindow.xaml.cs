@@ -93,9 +93,7 @@ namespace NeutrinoStudio.Shell
             #endregion
         }
 
-        private static readonly string SettingFileName = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "Il Harper\\Neutrino Studio\\layout.xml");
+        private static readonly string SettingFileName = Path.Combine(ConfigHelper.UserDataFolder, "layout.xml");
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
