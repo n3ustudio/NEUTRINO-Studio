@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Musiqual.Editor.Models;
 using Scrosser.Models;
 
 namespace NeutrinoStudio.Shell.ViewModels
@@ -32,6 +33,18 @@ namespace NeutrinoStudio.Shell.ViewModels
             set
             {
                 _scross = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private EditMode _editMode = new EditMode();
+
+        public EditMode EditMode
+        {
+            get => _editMode;
+            set
+            {
+                _editMode = value;
                 OnPropertyChanged();
             }
         }
