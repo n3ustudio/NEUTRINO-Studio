@@ -36,5 +36,11 @@ namespace NeutrinoStudio.Shell.Views.Docks
 
         #endregion
 
+        #region Current
+
+        public static NavigatorView Current = new NavigatorView();
+
+        #endregion
+
     }
 }

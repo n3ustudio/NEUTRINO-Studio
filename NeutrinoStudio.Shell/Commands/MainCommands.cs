@@ -112,5 +112,14 @@ namespace NeutrinoStudio.Shell.Commands
             {
                 new KeyGesture(Key.F9, ModifierKeys.None, "F9")
             }));
+
+        public static RoutedUICommand OpenNavigatorView { get; } = new RoutedUICommand(
+            "Navigator",
+            "Navigator",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+                new KeyGesture(Key.N, ModifierKeys.Control, "Ctrl+N")
+            }));
     }
 }

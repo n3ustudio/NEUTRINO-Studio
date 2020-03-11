@@ -79,6 +79,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => TaskView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenNavigatorView,
+                (sender, args) => NavigatorView.Current.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -89,6 +94,7 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDocument(SettingsView.Current);
             DockManager.RegisterDocument(ProjectView.Current);
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
+            DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
 
             #endregion
         }
