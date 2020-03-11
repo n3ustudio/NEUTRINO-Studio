@@ -246,6 +246,10 @@
       <Project>{7f898b3a-da17-4cab-b387-5629b5faca49}</Project>
       <Name>RetroRadiance</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Musiqual\Musiqual\Musiqual.csproj">
+      <Project>{8ae37ee4-a82c-48a2-991f-c905086e7cac}</Project>
+      <Name>Musiqual</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
       <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
       <Name>NeuTask</Name>
@@ -257,6 +261,14 @@
     <ProjectReference Include="..\NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj">
       <Project>{0354d973-ec37-4e94-941a-a12dd2629e96}</Project>
       <Name>NeutrinoStudio.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scrosser\Scrosser\Scrosser.csproj">
+      <Project>{8e456298-f8b2-4d9e-949c-0296f0ba07af}</Project>
+      <Name>Scrosser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\World.UI\World.UI\World.UI.csproj">
+      <Project>{2b3fba77-c0f6-44f3-a282-98c66cd8b667}</Project>
+      <Name>World.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\YDock\YDock\YDock.csproj">
       <Project>{2bd226e4-b931-4b46-a6c3-d15270ad0565}</Project>
