@@ -107,6 +107,8 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
             DockManager.RegisterDock(_worldView, DockSide.Top);
 
+            _worldView.NavigateDockControl = NavigatorView.Current.DockControl;
+
             #endregion
         }
 
