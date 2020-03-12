@@ -38,9 +38,6 @@ namespace NeutrinoStudio.Shell
         {
             InitializeComponent();
 
-            _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, Navigator.Current.Scross,
-                Navigator.Current.EditMode);
-
             Loaded += OnLoaded;
 
             Closing += OnClosing;
@@ -105,9 +102,10 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDocument(ProjectView.Current);
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
-            DockManager.RegisterDock(_worldView, DockSide.Top);
 
-            _worldView.NavigateDockControl = NavigatorView.Current.DockControl;
+            _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, Navigator.Current.Scross,
+                Navigator.Current.EditMode);
+            DockManager.RegisterDock(_worldView, DockSide.Top);
 
             #endregion
         }
