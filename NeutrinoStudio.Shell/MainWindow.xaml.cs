@@ -103,7 +103,7 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
 
-            _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, Navigator.Current.Scross,
+            _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, scross => Navigator.Current.Scross = scross,
                 Navigator.Current.EditMode);
             DockManager.RegisterDock(_worldView, DockSide.Top);
 
