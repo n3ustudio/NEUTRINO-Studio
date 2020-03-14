@@ -92,7 +92,7 @@
                     </StackPanel>
                     <TextBlock Text="{Binding InputDir}" Margin="0,6"/>
                     <TextBlock Text="转换" Margin="0,6"/>
-                    <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <CheckBox Content="转换" Margin="0,6" IsChecked="{Binding IsLabelEnabled}"/>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -102,7 +102,7 @@
                         <Button Margin="6,0" Grid.Column="1" Content="…" Click="LabelButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="生成" Margin="0,6"/>
-                    <CheckBox Content="生成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <CheckBox Content="生成" Margin="0,6" IsChecked="{Binding IsSynthEnabled}"/>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -121,7 +121,7 @@
                         <Button Margin="6,0" Grid.Column="1" Content="…" Click="ModelButtonBase_OnClick"/>
                     </Grid>
                     <TextBlock Text="合成" Margin="0,6"/>
-                    <CheckBox Content="合成" Margin="0,6" IsEnabled="False" IsChecked="True"/>
+                    <CheckBox Content="合成" Margin="0,6" IsChecked="{Binding IsOutputEnabled}"/>
                     <Grid Margin="0,6,6,6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>

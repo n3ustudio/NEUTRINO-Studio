@@ -163,6 +163,42 @@ namespace NeutrinoStudio.Shell.Views.Documents
             }
         }
 
+        private bool _isLabelEnabled = true;
+
+        public bool IsLabelEnabled
+        {
+            get => _isLabelEnabled;
+            set
+            {
+                _isLabelEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isSynthEnabled = true;
+
+        public bool IsSynthEnabled
+        {
+            get => _isSynthEnabled;
+            set
+            {
+                _isSynthEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isOutputEnabled = true;
+
+        public bool IsOutputEnabled
+        {
+            get => _isOutputEnabled;
+            set
+            {
+                _isOutputEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         public IDockControl DockControl { get; set; }
@@ -381,12 +417,12 @@ namespace NeutrinoStudio.Shell.Views.Documents
             LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
 
-            TaskManager.Current.Push(new LabelTask(
+            if (IsLabelEnabled) TaskManager.Current.Push(new LabelTask(
                 ConfigHelper.Current.NeutrinoDir,
                 InputDir,
                 neuInputFull,
                 labelOutput));
-            TaskManager.Current.Push(new SynthTask(
+            if (IsSynthEnabled) TaskManager.Current.Push(new SynthTask(
                 ConfigHelper.Current.NeutrinoDir,
                 neuInputFull,
                 neuInputTiming,
@@ -394,7 +430,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 neuOutputMgc,
                 neuOutputBap,
                 ModelDir));
-            TaskManager.Current.Push(new OutputTask(
+            if (IsOutputEnabled) TaskManager.Current.Push(new OutputTask(
                 ConfigHelper.Current.NeutrinoDir,
                 neuOutputF0,
                 neuOutputMgc,
