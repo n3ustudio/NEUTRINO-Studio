@@ -400,21 +400,21 @@ namespace NeutrinoStudio.Shell.Views.Documents
             
             LogHelper.Current.Log(LogType.Warn, "合成：启动");
             LogHelper.Current.Log(LogType.Info, "配置：");
-            LogHelper.Current.Log(LogType.Info, "musicXMLtoLabel:");
-            LogHelper.Current.Log(LogType.Info, $"Input: {InputDir}");
-            LogHelper.Current.Log(LogType.Info, $"Output: {labelOutput}");
-            LogHelper.Current.Log(LogType.Info, "NEUTRINO:");
-            LogHelper.Current.Log(LogType.Info, $"Input: {neuInputFull}");
-            LogHelper.Current.Log(LogType.Info, $"Input: {neuInputTiming}");
-            LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputF0}");
-            LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputMgc}");
-            LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputBap}");
-            LogHelper.Current.Log(LogType.Info, $"Input: {ModelDir}");
-            LogHelper.Current.Log(LogType.Info, "WORLD:");
-            LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputF0}");
-            LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputMgc}");
-            LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputBap}");
-            LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, "musicXMLtoLabel:");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {InputDir}");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {labelOutput}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, "NEUTRINO:");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuInputFull}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuInputTiming}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputF0}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputMgc}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {neuOutputBap}");
+            if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {ModelDir}");
+            if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, "WORLD:");
+            if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputF0}");
+            if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputMgc}");
+            if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuOutputBap}");
+            if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
 
             if (IsLabelEnabled) TaskManager.Current.Push(new LabelTask(
