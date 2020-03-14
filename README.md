@@ -12,7 +12,9 @@
 
 </div>
 
-![ScreenShot](https://github.com/n3ustudio/NEUTRINO-Studio/raw/master/Assets/ScreenShot.png)
+![ScreenShot2](https://github.com/n3ustudio/NEUTRINO-Studio/raw/master/Assets/ScreenShot2.png)
+
+**NEW: Now Support Custom F0(PIT) Curve!**
 
 ## ⚠ WORKING IN PROGRESS ⚠
 
