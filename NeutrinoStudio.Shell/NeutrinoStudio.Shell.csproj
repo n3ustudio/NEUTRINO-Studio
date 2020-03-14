@@ -274,6 +274,10 @@
       <Project>{8e456298-f8b2-4d9e-949c-0296f0ba07af}</Project>
       <Name>Scrosser</Name>
     </ProjectReference>
+    <ProjectReference Include="..\World.NET\WorldNet\WorldNet.csproj">
+      <Project>{689ce687-07ca-4d21-97ba-e4325fd943c8}</Project>
+      <Name>WorldNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\World.UI\World.UI\World.UI.csproj">
       <Project>{2b3fba77-c0f6-44f3-a282-98c66cd8b667}</Project>
       <Name>World.UI</Name>
