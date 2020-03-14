@@ -196,7 +196,7 @@ namespace NeutrinoStudio.Shell.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Task(_B) 的本地化字符串。
+        ///   查找类似 Ta_sk 的本地化字符串。
         /// </summary>
         public static string Menu_Task {
             get {
