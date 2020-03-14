@@ -56,6 +56,7 @@ namespace NeutrinoStudio.Core.Tasks
         public override void Start()
         {
             if (Status != TaskStatus.Waiting) return;
+            if (File.Exists(Target)) File.Delete(Target);
             _mainProcess.Exited += MainProcessOnExited;
             _mainProcess.OutputDataReceived += MainProcessOnOutputDataReceived;
             _mainProcess.ErrorDataReceived += MainProcessOnErrorDataReceived;
