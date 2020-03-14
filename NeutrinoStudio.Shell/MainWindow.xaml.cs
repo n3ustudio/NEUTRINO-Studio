@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using Musiqual.Parameter.Views;
 using NeutrinoStudio.Shell.Commands;
 using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.ViewModels;
@@ -91,6 +92,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => _worldView.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenEditModeView,
+                (sender, args) => _editModeView.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -106,6 +112,8 @@ namespace NeutrinoStudio.Shell
             _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, scross => Navigator.Current.Scross = scross,
                 Navigator.Current.EditMode);
             DockManager.RegisterDock(_worldView, DockSide.Top);
+            _editModeView = new EditModeView(Navigator.Current.EditMode);
+            DockManager.RegisterDock(_editModeView, DockSide.Top);
 
             #endregion
         }
@@ -113,6 +121,7 @@ namespace NeutrinoStudio.Shell
         #region Views
 
         private WorldView _worldView;
+        private EditModeView _editModeView;
 
         #endregion
 

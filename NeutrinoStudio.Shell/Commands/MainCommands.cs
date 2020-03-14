@@ -130,5 +130,14 @@ namespace NeutrinoStudio.Shell.Commands
             {
 
             }));
+
+        public static RoutedUICommand OpenEditModeView { get; } = new RoutedUICommand(
+            "Mode",
+            "Mode",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+
+            }));
     }
 }
