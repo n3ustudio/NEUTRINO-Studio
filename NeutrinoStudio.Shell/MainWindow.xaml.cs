@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using Musiqual.Parameter.Views;
+using Musiqual.Playback;
 using NeutrinoStudio.Shell.Commands;
 using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.ViewModels;
@@ -97,6 +98,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => _editModeView.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenPlaybackView,
+                (sender, args) => PlaybackView.Current.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -108,6 +114,7 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDocument(ProjectView.Current);
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
+            DockManager.RegisterDock(PlaybackView.Current, DockSide.Top);
 
             _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, scross => Navigator.Current.Scross = scross,
                 Navigator.Current.EditMode);

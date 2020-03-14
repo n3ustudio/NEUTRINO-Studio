@@ -139,5 +139,14 @@ namespace NeutrinoStudio.Shell.Commands
             {
 
             }));
+
+        public static RoutedUICommand OpenPlaybackView { get; } = new RoutedUICommand(
+            "Playback",
+            "Playback",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+
+            }));
     }
 }
