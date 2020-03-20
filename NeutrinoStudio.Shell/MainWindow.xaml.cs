@@ -103,6 +103,11 @@ namespace NeutrinoStudio.Shell
                 (sender, args) => PlaybackView.Current.DockControl.Show(),
                 (sender, args) => args.CanExecute = true));
 
+            CommandBindings.Add(new CommandBinding(
+                UICommands.OpenAutoScrollView,
+                (sender, args) => AutoScrollView.Current.DockControl.Show(),
+                (sender, args) => args.CanExecute = true));
+
             #endregion
 
             #region Document Register
@@ -115,6 +120,7 @@ namespace NeutrinoStudio.Shell
             DockManager.RegisterDock(TaskView.Current, DockSide.Right);
             DockManager.RegisterDock(NavigatorView.Current, DockSide.Bottom);
             DockManager.RegisterDock(PlaybackView.Current, DockSide.Top);
+            DockManager.RegisterDock(AutoScrollView.Current, DockSide.Top);
 
             _worldView = new WorldView(DockManager, NavigatorView.Current.DockControl, scross => Navigator.Current.Scross = scross,
                 Navigator.Current.EditMode);

@@ -84,6 +84,7 @@
                     </MenuItem>
                     <MenuItem Header="{x:Static props:Resources.Menu_Tools}">
                         <MenuItem Command="{x:Static commands:UICommands.OpenEditModeView}" Foreground="#FF212121"/>
+                        <MenuItem Command="{x:Static commands:UICommands.OpenAutoScrollView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenTaskView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenPlaybackView}" Foreground="#FF212121"/>
                         <MenuItem Command="{x:Static commands:UICommands.OpenWorldView}" Foreground="#FF212121"/>

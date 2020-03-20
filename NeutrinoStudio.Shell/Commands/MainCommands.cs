@@ -148,5 +148,14 @@ namespace NeutrinoStudio.Shell.Commands
             {
 
             }));
+
+        public static RoutedUICommand OpenAutoScrollView { get; } = new RoutedUICommand(
+            "Auto Scroll",
+            "AutoScroll",
+            typeof(UICommands),
+            new InputGestureCollection(new List<InputGesture>()
+            {
+
+            }));
     }
 }
