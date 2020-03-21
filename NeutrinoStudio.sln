@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrosser", "Scrosser\Scross
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musiqual", "Musiqual\Musiqual\Musiqual.csproj", "{8AE37EE4-A82C-48A2-991F-C905086E7CAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuTask.Mac", "NeuTask\NeuTask.Mac\NeuTask.Mac.csproj", "{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -323,6 +325,24 @@ Global
 		{8AE37EE4-A82C-48A2-991F-C905086E7CAC}.Release|x64.Build.0 = Release|Any CPU
 		{8AE37EE4-A82C-48A2-991F-C905086E7CAC}.Release|x86.ActiveCfg = Release|Any CPU
 		{8AE37EE4-A82C-48A2-991F-C905086E7CAC}.Release|x86.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|x64.Build.0 = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Debug|x86.Build.0 = Debug|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|Any CPU.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|x64.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|x64.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|x86.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release RETRO|x86.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|x64.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|x64.Build.0 = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|x86.ActiveCfg = Release|Any CPU
+		{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
