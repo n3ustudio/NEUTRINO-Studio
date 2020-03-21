@@ -27,7 +27,5 @@ jobs:
       uses: nuget/setup-nuget@v1
     - name: Restore NuGet Package
       run: nuget restore NeutrinoStudio.sln
-    - name: Prepare MSBuild
-      uses: microsoft/setup-msbuild@v1.0.0
     - name: Build Project
       run: msbuild NeutrinoStudio.Mac.Shell/NeutrinoStudio.Mac.Shell.csproj /p:Configuration=Release /verbosity:quiet
