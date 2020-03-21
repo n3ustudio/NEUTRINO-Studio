@@ -54,6 +54,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuTask.Mac", "NeuTask\NeuT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Mac.Core", "NeutrinoStudio.Mac.Core\NeutrinoStudio.Mac.Core.csproj", "{74DC297C-D39F-4D66-ABF6-74B59E8DD9F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Mac.Shell", "NeutrinoStudio.Mac.Shell\NeutrinoStudio.Mac.Shell.csproj", "{252B3430-18EE-419A-BCDE-B72C24BF7C84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -363,6 +365,24 @@ Global
 		{74DC297C-D39F-4D66-ABF6-74B59E8DD9F7}.Release|x64.Build.0 = Release|Any CPU
 		{74DC297C-D39F-4D66-ABF6-74B59E8DD9F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{74DC297C-D39F-4D66-ABF6-74B59E8DD9F7}.Release|x86.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|x64.Build.0 = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Debug|x86.Build.0 = Debug|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|Any CPU.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|Any CPU.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|x64.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|x64.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|x86.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release RETRO|x86.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|x64.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|x64.Build.0 = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|x86.ActiveCfg = Release|Any CPU
+		{252B3430-18EE-419A-BCDE-B72C24BF7C84}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
