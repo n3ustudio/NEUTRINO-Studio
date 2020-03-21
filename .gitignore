@@ -341,3 +341,6 @@ healthchecksdb
 
 # Remain Icons in Utilities
 !NeutrinoStudio.Utilities/Assets/Icons/**
+
+# Mac Files
+.DS_Store
