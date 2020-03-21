@@ -86,5 +86,15 @@
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuTask\NeuTask.Mac\NeuTask.Mac.csproj">
+      <Project>{9DE59DF2-C12C-41DF-BE2B-347B20641D9D}</Project>
+      <Name>NeuTask.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeutrinoStudio.Mac.Core\NeutrinoStudio.Mac.Core.csproj">
+      <Project>{74DC297C-D39F-4D66-ABF6-74B59E8DD9F7}</Project>
+      <Name>NeutrinoStudio.Mac.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
