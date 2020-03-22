@@ -10,20 +10,20 @@ using Newtonsoft.Json.Serialization;
 
 namespace NeutrinoStudio.FileConverter.Core
 {
-    public class Data
+    public class Converter
     {
-        public Data()
+        public Converter()
         {
         }
 
-        public Data(Data data)
+        public Converter(Converter converter)
         {
-            ProjectName = data.ProjectName;
-            Files = data.Files;
-            TrackList = data.TrackList.Select(it => new Track(it)).ToList();
-            TimeSigList = data.TimeSigList.Select(it => new TimeSig(it)).ToList();
-            TempoList = data.TempoList.Select(it => new Tempo(it)).ToList();
-            PreMeasure = data.PreMeasure;
+            ProjectName = converter.ProjectName;
+            Files = converter.Files;
+            TrackList = converter.TrackList.Select(it => new Track(it)).ToList();
+            TimeSigList = converter.TimeSigList.Select(it => new TimeSig(it)).ToList();
+            TempoList = converter.TempoList.Select(it => new Tempo(it)).ToList();
+            PreMeasure = converter.PreMeasure;
             Lyric = new Lyric(this, false);
         }
 

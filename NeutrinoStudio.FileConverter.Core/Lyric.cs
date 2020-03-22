@@ -7,13 +7,13 @@ namespace NeutrinoStudio.FileConverter.Core
     public class Lyric
     {
 
-        public Lyric(Data data, bool analyse)
+        public Lyric(Converter converter, bool analyse)
         {
-            Data = data;
+            _converter = converter;
             if (analyse) LyricTypeAnalyse();
         }
 
-        private readonly Data Data;
+        private readonly Converter _converter;
 
         public LyricType TypeAnalysed = LyricType.None;
 
@@ -21,7 +21,7 @@ namespace NeutrinoStudio.FileConverter.Core
         {
 
             LyricType projectLyricType = LyricType.None;
-            foreach (Track track in Data.TrackList)
+            foreach (Track track in _converter.TrackList)
             {
                 var noteList = track.NoteList;
                 int[] typeCount = { 0, 0, 0, 0 };
@@ -165,7 +165,7 @@ namespace NeutrinoStudio.FileConverter.Core
 
         private void CleanLyric(LyricType type)
         {
-            foreach (Track track in Data.TrackList)
+            foreach (Track track in _converter.TrackList)
             {
                 var noteList = track.NoteList;
                 switch (type)
@@ -347,7 +347,7 @@ namespace NeutrinoStudio.FileConverter.Core
 
         private void TransLyricsRomaji2Kana(TransDirection direction)
         {
-            foreach (Track track in Data.TrackList)
+            foreach (Track track in _converter.TrackList)
             {
                 var noteList = track.NoteList;
                 switch (direction)
@@ -392,7 +392,7 @@ namespace NeutrinoStudio.FileConverter.Core
 
         private void TransLyricsTan2Ren(TransDirection direction)
         {
-            foreach (Track track in Data.TrackList)
+            foreach (Track track in _converter.TrackList)
             {
                 var noteList = track.NoteList;
                 switch (direction)
