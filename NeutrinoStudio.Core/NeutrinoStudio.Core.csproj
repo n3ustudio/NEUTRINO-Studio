@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ConvertTask.cs" />
-    <Compile Include="Tasks\InputTask.cs" />
     <Compile Include="Tasks\LabelTask.cs" />
     <Compile Include="Tasks\OutputTask.cs" />
     <Compile Include="Tasks\SynthTask.cs" />
