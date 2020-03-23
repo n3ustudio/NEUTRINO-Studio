@@ -48,7 +48,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _inputFormat = value;
-                OnPropertyChanged(nameof(InputFormat));
+                OnPropertyChanged();
             }
         }
 
@@ -60,7 +60,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _outputFormat = value;
-                OnPropertyChanged(nameof(OutputFormat));
+                OnPropertyChanged();
             }
         }
 
@@ -72,7 +72,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _modelDir = value;
-                OnPropertyChanged(nameof(ModelDir));
+                OnPropertyChanged();
             }
         }
 
@@ -84,7 +84,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _projectName = value;
-                OnPropertyChanged(nameof(ProjectName));
+                OnPropertyChanged();
             }
         }
 
@@ -96,7 +96,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _projectDir = value;
-                OnPropertyChanged(nameof(ProjectDir));
+                OnPropertyChanged();
             }
         }
 
@@ -108,7 +108,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _inputDir = value;
-                OnPropertyChanged(nameof(InputDir));
+                OnPropertyChanged();
             }
         }
 
@@ -120,7 +120,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _labelDir = value;
-                OnPropertyChanged(nameof(LabelDir));
+                OnPropertyChanged();
             }
         }
 
@@ -132,11 +132,9 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _convertDir = value;
-                OnPropertyChanged(nameof(ConvertDir));
+                OnPropertyChanged();
             }
         }
-
-        private string _generateDir = "";
 
         private string _synthDir = "";
 
@@ -146,7 +144,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _synthDir = value;
-                OnPropertyChanged(nameof(SynthDir));
+                OnPropertyChanged();
             }
         }
 
@@ -158,7 +156,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _outputDir = value;
-                OnPropertyChanged(nameof(OutputDir));
+                OnPropertyChanged();
             }
         }
 
