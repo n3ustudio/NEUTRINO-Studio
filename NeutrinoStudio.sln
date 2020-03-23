@@ -56,7 +56,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Mac.Core", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.Mac.Shell", "NeutrinoStudio.Mac.Shell\NeutrinoStudio.Mac.Shell.csproj", "{252B3430-18EE-419A-BCDE-B72C24BF7C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.FileConverter.Core", "NeutrinoStudio.FileConverter.Core\NeutrinoStudio.FileConverter.Core.csproj", "{5BBB6ADE-7D3D-4E13-BCAF-F39F0602EA6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeutrinoStudio.FileConverter.Core", "NeutrinoStudio.FileConverter.Core\NeutrinoStudio.FileConverter.Core.csproj", "{5BBB6ADE-7D3D-4E13-BCAF-F39F0602EA6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeutrinoStudio.FileConverter", "NeutrinoStudio.FileConverter\NeutrinoStudio.FileConverter.csproj", "{6C3685FE-060D-4179-B0F4-26B194915F95}"
 EndProject
@@ -281,8 +281,8 @@ Global
 		{2B3FBA77-C0F6-44F3-A282-98C66CD8B667}.Release|x86.Build.0 = Release|Any CPU
 		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x64.ActiveCfg = Debug|x64
-		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x64.Build.0 = Debug|x64
+		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x64.Build.0 = Debug|Any CPU
 		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Debug|x86.Build.0 = Debug|Any CPU
 		{6EA59123-07BC-410F-B29F-3A674CEA3715}.Release RETRO|Any CPU.ActiveCfg = Release|Any CPU
