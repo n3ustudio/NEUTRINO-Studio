@@ -123,8 +123,6 @@
     </ApplicationDefinition>
     <Compile Include="Commands\MainCommands.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
-    <Compile Include="Models\InputFormat.cs" />
-    <Compile Include="Models\OutputFormat.cs" />
     <Compile Include="Properties\Resources.zh-CN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -266,6 +264,10 @@
       <Project>{b535fad6-a3cc-4fe7-94b7-99c810115be4}</Project>
       <Name>NeutrinoStudio.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeutrinoStudio.FileConverter.Core\NeutrinoStudio.FileConverter.Core.csproj">
+      <Project>{5BBB6ADE-7D3D-4E13-BCAF-F39F0602EA6D}</Project>
+      <Name>NeutrinoStudio.FileConverter.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeutrinoStudio.FileConverter\NeutrinoStudio.FileConverter.csproj">
       <Project>{6c3685fe-060d-4179-b0f4-26b194915f95}</Project>
       <Name>NeutrinoStudio.FileConverter</Name>
@@ -302,7 +304,9 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo_v1.ico" />
   </ItemGroup>

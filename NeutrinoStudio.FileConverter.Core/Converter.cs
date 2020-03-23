@@ -37,7 +37,7 @@ namespace NeutrinoStudio.FileConverter.Core
         public void Import(List<string> fileNames)
         {
             Files = fileNames.ToList();
-            UtaFormat format = UtaFormat.None;
+            InputFormat format = InputFormat.Undefined;
             string extension = Path.GetExtension(fileNames.First());
             //Determine the format of the project
             if (extension == ".vsqx")
@@ -45,24 +45,24 @@ namespace NeutrinoStudio.FileConverter.Core
                 string content = File.ReadAllText(Files[0]);
                 if (content.Contains("vsq3 xmlns=\"http://www.yamaha.co.jp/vocaloid/schema/vsq3/\""))
                 {
-                    format = UtaFormat.Vsq3;
+                    format = InputFormat.Vsq3;
                 }
                 else if (content.Contains("vsq4 xmlns=\"http://www.yamaha.co.jp/vocaloid/schema/vsq4/\""))
                 {
-                    format = UtaFormat.Vsq4;
+                    format = InputFormat.Vsq4;
                 }
             }
             else if (extension == ".ust")
             {
-                format = UtaFormat.Ust;
+                format = InputFormat.Ust;
             }
             else if (extension == ".ccs")
             {
-                format = UtaFormat.Ccs;
+                format = InputFormat.Ccs;
             }
             else if (extension == ".vpr")
             {
-                format = UtaFormat.Vpr;
+                format = InputFormat.Vpr;
             }
             else
             {
@@ -71,26 +71,26 @@ namespace NeutrinoStudio.FileConverter.Core
 
             switch (format)
             {
-                case UtaFormat.Vsq2:
-                    break;
+                case InputFormat.Vsq2:
+                    throw new NeutrinoStudioFileConverterDeprecatedException("The format is not supported.");
 
-                case UtaFormat.Vsq3:
+                case InputFormat.Vsq3:
                     ImportVsq3(Files);
                     return;
 
-                case UtaFormat.Vsq4:
+                case InputFormat.Vsq4:
                     ImportVsq4(Files);
                     return;
 
-                case UtaFormat.Ust:
+                case InputFormat.Ust:
                     ImportUst(Files);
                     return;
 
-                case UtaFormat.Ccs:
+                case InputFormat.Ccs:
                     ImportCcs(Files);
                     return;
 
-                case UtaFormat.Vpr:
+                case InputFormat.Vpr:
                     ImportVpr(Files);
                     return;
             }

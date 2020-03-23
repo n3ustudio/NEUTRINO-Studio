@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NeutrinoStudio.Shell.Views.Documents"
              xmlns:u="clr-namespace:NeutrinoStudio.Utilities.Controls;assembly=NeutrinoStudio.Utilities"
-             xmlns:m="clr-namespace:NeutrinoStudio.Shell.Models"
+             xmlns:helpers="clr-namespace:NeutrinoStudio.FileConverter.Helpers;assembly=NeutrinoStudio.FileConverter"
              mc:Ignorable="d" 
              FontFamily="Segoe UI"
              Background="{DynamicResource ThemeBrushKey}"
@@ -69,26 +69,34 @@
                     </Grid>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=1}"
-                                     Content="musicxml" Margin="0,0,6,0"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=1}"
+                                     Content="musicxml (MusicXml)" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=2}"
-                                     Content="xml(musicxml)" Margin="0,0,6,0"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=2}"
+                                     Content="xml (MusicXml)" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=3}"
-                                     Content="vsq" Margin="0,0,6,0" IsEnabled="False"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=3}"
+                                     Content="mxl (MusicXml)" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=4}"
-                                     Content="vsqx" Margin="0,0,6,0" IsEnabled="False"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=4}"
+                                     Content="vsq (VOCALOID 2)" Margin="0,0,6,0" IsEnabled="False"/>
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=5}"
-                                     Content="vpr" Margin="0,0,6,0" IsEnabled="False"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=5}"
+                                     Content="vsqx (VOCALOID 3)" Margin="0,0,6,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=6}"
-                                     Content="ust" Margin="0,0,6,0" IsEnabled="False"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=6}"
+                                     Content="vsqx (VOCALOID 4)" Margin="0,0,6,0"/>
                         <RadioButton GroupName="InputFormat"
-                                     IsChecked="{Binding InputFormat, Converter={x:Static m:InputFormatHelper.InputFormatConverter}, ConverterParameter=7}"
-                                     Content="ccs" Margin="0,0,6,0" IsEnabled="False"/>
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=7}"
+                                     Content="vpr (VOCALOID 5)" Margin="0,0,6,0"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=8}"
+                                     Content="ust (UTAU)" Margin="0,0,6,0"/>
+                        <RadioButton GroupName="InputFormat"
+                                     IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=9}"
+                                     Content="ccs (CeVIO)" Margin="0,0,6,0"/>
                     </StackPanel>
                     <TextBlock Text="{Binding InputDir}" Margin="0,6"/>
                     <TextBlock Text="转换" Margin="0,6"/>
@@ -134,13 +142,13 @@
                     <CheckBox Content="转换" Margin="0,6" IsEnabled="False" IsChecked="False"/>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="OutputFormat"
-                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=1}"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static helpers:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=1}"
                                      Content="wav" Margin="0,0,6,0" IsEnabled="False"/>
                         <RadioButton GroupName="OutputFormat"
-                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=2}"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static helpers:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=2}"
                                      Content="mp3" Margin="0,0,6,0" IsEnabled="False"/>
                         <RadioButton GroupName="OutputFormat"
-                                     IsChecked="{Binding OutputFormat, Converter={x:Static m:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=3}"
+                                     IsChecked="{Binding OutputFormat, Converter={x:Static helpers:OutputFormatHelper.OutputFormatConverter}, ConverterParameter=3}"
                                      Content="flac" Margin="0,0,6,0" IsEnabled="False"/>
                     </StackPanel>
                     <Grid Margin="0,6,6,6">

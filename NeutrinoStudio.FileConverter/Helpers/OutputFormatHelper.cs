@@ -5,16 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using NeutrinoStudio.FileConverter.Core;
 
-namespace NeutrinoStudio.Shell.Models
+namespace NeutrinoStudio.FileConverter.Helpers
 {
-    public enum OutputFormat
-    {
-        Undefined = 0,
-        Wav = 1,
-        Mp3 = 2,
-        Flac = 3
-    }
 
     public static class OutputFormatHelper
     {
@@ -32,4 +26,5 @@ namespace NeutrinoStudio.Shell.Models
             return (OutputFormat)int.Parse(parameter.ToString());
         }
     }
+
 }

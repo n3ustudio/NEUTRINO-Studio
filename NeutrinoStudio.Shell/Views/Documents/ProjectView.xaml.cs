@@ -18,8 +18,8 @@ using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using NeuTask;
 using NeutrinoStudio.Core.Tasks;
+using NeutrinoStudio.FileConverter.Core;
 using NeutrinoStudio.Shell.Helpers;
-using NeutrinoStudio.Shell.Models;
 using YDock.Interface;
 using Path = System.IO.Path;
 
@@ -227,10 +227,16 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 case InputFormat.Xml:
                     filter = new CommonFileDialogFilter("Music XML", ".xml");
                     break;
-                case InputFormat.Vsq:
-                    filter = new CommonFileDialogFilter("VOCALOID 3 Project", ".vsq");
+                case InputFormat.Mxl:
+                    filter = new CommonFileDialogFilter("Music XML", ".mxl");
                     break;
-                case InputFormat.Vsqx:
+                case InputFormat.Vsq2:
+                    filter = new CommonFileDialogFilter("VOCALOID 2 Project", ".vsq");
+                    break;
+                case InputFormat.Vsq3:
+                    filter = new CommonFileDialogFilter("VOCALOID 3 Project", ".vsqx");
+                    break;
+                case InputFormat.Vsq4:
                     filter = new CommonFileDialogFilter("VOCALOID 4 Project", ".vsqx");
                     break;
                 case InputFormat.Vpr:
