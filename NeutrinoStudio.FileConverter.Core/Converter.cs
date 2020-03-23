@@ -1136,7 +1136,7 @@ namespace NeutrinoStudio.FileConverter.Core
                 {
                     if (pos < thisNote.NoteTimeOn)
                         musicXml.Append(
-                            $"<note><pitch><step>A</step><octave>4</octave><alter>0</alter></pitch><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice>staff>1</staff><rest/></note>");
+                            $"<note><pitch><step>A</step><octave>4</octave><alter>0</alter></pitch><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice><staff>1</staff><rest/></note>");
 
                     string step = Constant.KeyList[thisNote.NoteKey / Constant.KeyForOneOctave];
                     int octave = thisNote.NoteKey / Constant.KeyForOneOctave - 1;
