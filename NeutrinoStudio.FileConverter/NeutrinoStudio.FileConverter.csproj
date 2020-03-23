@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
+      <Project>{55fbc5c7-565a-4471-9151-36c423a2a1fe}</Project>
+      <Name>NeuTask</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeutrinoStudio.FileConverter.Core\NeutrinoStudio.FileConverter.Core.csproj">
       <Project>{5bbb6ade-7d3d-4e13-bcaf-f39f0602ea6d}</Project>
       <Name>NeutrinoStudio.FileConverter.Core</Name>
