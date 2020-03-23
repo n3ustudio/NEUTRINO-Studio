@@ -45,6 +45,7 @@
     <Compile Include="Helpers\InputFormatHelper.cs" />
     <Compile Include="Helpers\OutputFormatHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\InputTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeuTask\NeuTask\NeuTask.csproj">
