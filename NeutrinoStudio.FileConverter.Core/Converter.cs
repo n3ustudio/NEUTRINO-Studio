@@ -1120,23 +1120,29 @@ namespace NeutrinoStudio.FileConverter.Core
 
         public void ExportMusicXml(string filename)
         {
+            string scorePrefix = $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.1 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\"><score-partwise version=\"3.1\"><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>${DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part>";
+            string measureSuffix = "</measure>";
+            string scoreSuffix = "</part></score-partwise>";
+
             string tempoResult = "";
             foreach (Tempo tempo in TempoList)
                 if (tempo.PosTick == 0)
                     tempoResult = tempo.Bpm.ToString("F2");
+
+            string measurePrefix = $"<measure><direction><sound tempo=\"${tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>4</beats><beat-type>4</beat-type></time></attributes>";
+
             StringBuilder musicXml = new StringBuilder();
-            musicXml.Append(
-                $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><score-partwise><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>${DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part>");
+            musicXml.Append(scorePrefix);
             foreach (Track track in TrackList)
             {
-                musicXml.Append(
-                    $"<measure><direction><sound tempo=\"${tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>4</beats><beat-type>4</beat-type></time></attributes>");
+                musicXml.Append(measurePrefix);
                 int pos = 0;
+                int measure = 0;
                 foreach (Note thisNote in track.NoteList)
                 {
                     if (pos < thisNote.NoteTimeOn)
                         musicXml.Append(
-                            $"<note><pitch><step>A</step><octave>4</octave><alter>0</alter></pitch><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice><staff>1</staff><rest/></note>");
+                            $"<note><rest/><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice></note>");
 
                     string step = Constant.KeyList[thisNote.NoteKey / Constant.KeyForOneOctave];
                     int octave = thisNote.NoteKey / Constant.KeyForOneOctave - 1;
@@ -1144,12 +1150,23 @@ namespace NeutrinoStudio.FileConverter.Core
                     musicXml.Append(
                         $"<note><pitch><step>{step}</step><octave>{octave}</octave><alter>{alter}</alter></pitch><duration>{thisNote.NoteLength}</duration><type>whole</type><voice>1</voice><staff>1</staff><lyric default-y=\"-77\"><text>{thisNote.NoteLyric}</text></lyric></note>");
                     pos = thisNote.NoteTimeOff;
+
+                    if (measure == 4)
+                    {
+                        musicXml.Append(measureSuffix);
+                        musicXml.Append(measurePrefix);
+                        measure = 0;
+                    }
+                    else measure++;
                 }
 
-                musicXml.Append("</measure>");
+                musicXml.Append(
+                    "<note><rest/><duration>480</duration><voice>1</voice></note>");
+                musicXml.Append(measureSuffix);
+
             }
 
-            musicXml.Append("</part></score-partwise>");
+            musicXml.Append(scoreSuffix);
             File.WriteAllText(filename, musicXml.ToString(), Encoding.UTF8);
         }
     }
