@@ -7,7 +7,7 @@ namespace NeutrinoStudio.FileConverter.Core
     public class NeutrinoStudioFileConverterDeprecatedException : Exception
     {
 
-        public NeutrinoStudioFileConverterDeprecatedException()
+        private NeutrinoStudioFileConverterDeprecatedException()
         {
         }
 
@@ -28,7 +28,7 @@ namespace NeutrinoStudio.FileConverter.Core
     public class NeutrinoStudioFileConverterOperationException : Exception
     {
 
-        public NeutrinoStudioFileConverterOperationException()
+        private NeutrinoStudioFileConverterOperationException()
         {
         }
 
@@ -49,7 +49,7 @@ namespace NeutrinoStudio.FileConverter.Core
     public class NeutrinoStudioFileConverterFileException : Exception
     {
 
-        public NeutrinoStudioFileConverterFileException()
+        private NeutrinoStudioFileConverterFileException()
         {
         }
 
