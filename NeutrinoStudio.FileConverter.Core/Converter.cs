@@ -662,34 +662,15 @@ namespace NeutrinoStudio.FileConverter.Core
         {
             await Task.Run(() =>
             {
-                //string omitText = "";
                 for (int trackNum = 0; trackNum < TrackList.Count; trackNum++)
                 {
                     StringBuilder ustContents = new StringBuilder();
                     ustContents.AppendLine("[#VERSION]");
                     ustContents.AppendLine("UST Version1.2");
                     ustContents.AppendLine("[#SETTING]");
-                    //foreach (TimeSig timeSig in TimeSigList)
-                    //{
-                    //    if ((timeSig.Denomi != 4 || timeSig.Nume != 4) && trackNum == 0)
-                    //    {
-                    //        omitText += "Meter change omitted at Measure [" + timeSig.PosMes + "] : " + timeSig.Nume + "/" + timeSig.Denomi + Environment.NewLine;
-                    //    }
-                    //}
-                    //foreach (Tempo tempo in TempoList)
-                    //{
-                    //    if (tempo.PosTick != 0)
-                    //    {
-                    //        if (trackNum == 0)
-                    //        {
-                    //            omitText += "Tempo change omitted at Tick [" + tempo.PosTick + "] : " + tempo.Bpm.ToString("F2") + Environment.NewLine;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        ustContents += "Tempo=" + tempo.Bpm.ToString("F2") + Environment.NewLine;
-                    //    }
-                    //}
+                    foreach (Tempo tempo in TempoList)
+                        if (tempo.PosTick == 0)
+                            ustContents.AppendLine("Tempo=" + tempo.Bpm.ToString("F2"));
                     int pos = 0;
                     int restCount = 0;
                     ustContents.AppendLine("Tracks=1");
@@ -701,7 +682,7 @@ namespace NeutrinoStudio.FileConverter.Core
                         if (pos < thisNote.NoteTimeOn)
                         {
                             ustContents.AppendLine("[#" + (noteNum + restCount).ToString("D4") + "]");
-                            ustContents.AppendLine("Length=" + (thisNote.NoteTimeOn - pos).ToString());
+                            ustContents.AppendLine("Length=" + (thisNote.NoteTimeOn - pos));
                             ustContents.AppendLine("Lyric=R");
                             ustContents.AppendLine("NoteNum=60");
                             ustContents.AppendLine("PreUtterance=");
@@ -1040,14 +1021,16 @@ namespace NeutrinoStudio.FileConverter.Core
                     XmlElement score = (XmlElement)song.GetElementsByTagName("Score")[0];
                     song.ReplaceChild(allTempo.Clone(), tempo);
                     song.ReplaceChild(allBeat.Clone(), beat);
-                    foreach (Note Note in thisTrack.NoteList)
+                    foreach (Note thisNote in thisTrack.NoteList)
                     {
+                        if (ccs.DocumentElement is null)
+                            throw new NeutrinoStudioFileConverterFileException("Ccs file error at ccs.DocumentElement");
                         XmlElement note = ccs.CreateElement("Note", ccs.DocumentElement.NamespaceURI);
-                        note.SetAttribute("Clock", (Note.NoteTimeOn * 2).ToString());
-                        note.SetAttribute("PitchStep", (Note.NoteKey % Constant.KeyForOneOctave).ToString());
-                        note.SetAttribute("PitchOctave", (Note.NoteKey / Constant.KeyForOneOctave - 1).ToString());
-                        note.SetAttribute("Duration", (Note.NoteLength * 2).ToString());
-                        note.SetAttribute("Lyric", Note.NoteLyric);
+                        note.SetAttribute("Clock", (thisNote.NoteTimeOn * 2).ToString());
+                        note.SetAttribute("PitchStep", (thisNote.NoteKey % Constant.KeyForOneOctave).ToString());
+                        note.SetAttribute("PitchOctave", (thisNote.NoteKey / Constant.KeyForOneOctave - 1).ToString());
+                        note.SetAttribute("Duration", (thisNote.NoteLength * 2).ToString());
+                        note.SetAttribute("Lyric", thisNote.NoteLyric);
                         score.AppendChild(note);
                     }
                     int posTick = 0;
@@ -1075,5 +1058,43 @@ namespace NeutrinoStudio.FileConverter.Core
                 // MessageBox.Show("Ccs is successfully exported.", "ExportCcs");
             });
         }
+
+        public async Task ExportMusicXml(string filename)
+        {
+            await Task.Run(() =>
+            {
+                string tempoResult = "";
+                foreach (Tempo tempo in TempoList)
+                    if (tempo.PosTick == 0)
+                        tempoResult = tempo.Bpm.ToString("F2");
+                StringBuilder musicXml = new StringBuilder();
+                musicXml.Append(
+                    $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><score-partwise><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>${DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part>");
+                foreach (Track track in TrackList)
+                {
+                    musicXml.Append(
+                        $"<measure><direction><sound tempo=\"${tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>4</beats><beat-type>4</beat-type></time></attributes>");
+                    int pos = 0;
+                    foreach (Note thisNote in track.NoteList)
+                    {
+                        if (pos < thisNote.NoteTimeOn)
+                            musicXml.Append(
+                                $"<note><pitch><step>A</step><octave>4</octave><alter>0</alter></pitch><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice>staff>1</staff><rest/></note>");
+
+                        string step = Constant.KeyList[thisNote.NoteKey / Constant.KeyForOneOctave];
+                        int octave = thisNote.NoteKey / Constant.KeyForOneOctave - 1;
+                        int alter = Constant.AlterList[thisNote.NoteKey / Constant.KeyForOneOctave];
+                        musicXml.Append(
+                            $"<note><pitch><step>{step}</step><octave>{octave}</octave><alter>{alter}</alter></pitch><duration>{thisNote.NoteLength}</duration><type>whole</type><voice>1</voice><staff>1</staff><lyric default-y=\"-77\"><text>{thisNote.NoteLyric}</text></lyric></note>");
+                        pos = thisNote.NoteTimeOff;
+                    }
+
+                    musicXml.Append("</measure>");
+                }
+                musicXml.Append("</part></score-partwise>");
+                File.WriteAllText(filename + ".ust", musicXml.ToString(), Encoding.UTF8);
+            });
+        }
+
     }
 }
