@@ -266,6 +266,10 @@
       <Project>{b535fad6-a3cc-4fe7-94b7-99c810115be4}</Project>
       <Name>NeutrinoStudio.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeutrinoStudio.FileConverter\NeutrinoStudio.FileConverter.csproj">
+      <Project>{6c3685fe-060d-4179-b0f4-26b194915f95}</Project>
+      <Name>NeutrinoStudio.FileConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeutrinoStudio.Utilities\NeutrinoStudio.Utilities.csproj">
       <Project>{0354d973-ec37-4e94-941a-a12dd2629e96}</Project>
       <Name>NeutrinoStudio.Utilities</Name>
