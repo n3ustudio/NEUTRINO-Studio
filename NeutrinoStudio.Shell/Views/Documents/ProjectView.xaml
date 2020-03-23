@@ -60,7 +60,7 @@
                                 选择输入格式后轻敲选择按钮即可完成自动填充。<LineBreak/>
                                 之后选择模型并轻敲「启动」。
                             </TextBlock>
-                            <CheckBox Margin="0,6" Content="预转换" IsEnabled="False"/>
+                            <CheckBox Margin="0,6" Content="预转换" IsChecked="{Binding IsInputConvertEnabled}"/>
                         </StackPanel>
                         <Button Margin="6,0" Grid.Column="1" Click="InputButtonBase_OnClick"
                                 HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -68,6 +68,7 @@
                                     HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
                         </Button>
                     </Grid>
+                    <TextBlock Text="{Binding InputDir}" Margin="0,6"/>
                     <StackPanel Margin="0,6" Orientation="Horizontal">
                         <RadioButton GroupName="InputFormat"
                                      IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=1}"
@@ -99,7 +100,14 @@
                                      IsChecked="{Binding InputFormat, Converter={x:Static helpers:InputFormatHelper.InputFormatConverter}, ConverterParameter=9}"
                                      Content="ccs (CeVIO)" Margin="0,0,6,0"/>
                     </StackPanel>
-                    <TextBlock Text="{Binding InputDir}" Margin="0,6"/>
+                    <Grid Margin="0,6,6,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding InputConvertDir}"/>
+                        <Button Margin="6,0" Grid.Column="1" Content="…" Click="InputConvertButtonBase_OnClick"/>
+                    </Grid>
                     <TextBlock Text="转换" Margin="0,6"/>
                     <CheckBox Content="转换" Margin="0,6" IsChecked="{Binding IsLabelEnabled}"/>
                     <Grid Margin="0,6,6,6">

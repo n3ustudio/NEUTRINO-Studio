@@ -19,6 +19,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using NeuTask;
 using NeutrinoStudio.Core.Tasks;
 using NeutrinoStudio.FileConverter.Core;
+using NeutrinoStudio.FileConverter.Tasks;
 using NeutrinoStudio.Shell.Helpers;
 using NeutrinoStudio.Shell.Views.Docks;
 using YDock.Interface;
@@ -112,6 +113,18 @@ namespace NeutrinoStudio.Shell.Views.Documents
             }
         }
 
+        private string _inputConvertDir = "";
+
+        public string InputConvertDir
+        {
+            get => _inputConvertDir;
+            set
+            {
+                _inputConvertDir = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _labelDir = "";
 
         public string LabelDir
@@ -156,6 +169,18 @@ namespace NeutrinoStudio.Shell.Views.Documents
             set
             {
                 _outputDir = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isInputConvertEnabled = true;
+
+        public bool IsInputConvertEnabled
+        {
+            get => _isInputConvertEnabled;
+            set
+            {
+                _isInputConvertEnabled = value;
                 OnPropertyChanged();
             }
         }
@@ -227,9 +252,6 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 case InputFormat.Mxl:
                     filter = new CommonFileDialogFilter("Music XML", ".mxl");
                     break;
-                case InputFormat.Vsq2:
-                    filter = new CommonFileDialogFilter("VOCALOID 2 Project", ".vsq");
-                    break;
                 case InputFormat.Vsq3:
                     filter = new CommonFileDialogFilter("VOCALOID 3 Project", ".vsqx");
                     break;
@@ -271,11 +293,29 @@ namespace NeutrinoStudio.Shell.Views.Documents
             if (string.IsNullOrEmpty(dir)) return;
             ProjectName = file.Name.Replace(file.Extension, "");
             ProjectDir = Path.Combine(dir, ProjectName);
-            LabelDir = Path.Combine(ProjectDir, "label");
+            InputConvertDir = Path.Combine(ProjectDir, "score\\musicxml");
+            LabelDir = Path.Combine(ProjectDir, "score\\label");
             SynthDir = Path.Combine(ProjectDir, "output");
             OutputDir = Path.Combine(ProjectDir, "output");
 
             #endregion
+
+        }
+
+        private void InputConvertButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            CommonOpenFileDialog fileDialog = new CommonOpenFileDialog
+            {
+                Title = "选择输入转换目录",
+                DefaultDirectory = Environment.CurrentDirectory,
+                IsFolderPicker = true,
+                AllowNonFileSystemItems = true,
+                EnsurePathExists = true
+            };
+
+            if (fileDialog.ShowDialog() != CommonFileDialogResult.Ok) return;
+            InputConvertDir = fileDialog.FileName;
 
         }
 
@@ -357,11 +397,13 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 string.IsNullOrEmpty(ProjectName) ||
                 string.IsNullOrEmpty(ProjectDir) ||
                 InputFormat == InputFormat.Undefined ||
-                string.IsNullOrEmpty(InputDir) ||
-                string.IsNullOrEmpty(LabelDir) ||
-                string.IsNullOrEmpty(ModelDir) ||
-                string.IsNullOrEmpty(SynthDir) ||
-                string.IsNullOrEmpty(OutputDir)
+                InputFormat == InputFormat.Vsq2 ||
+                IsInputConvertEnabled && string.IsNullOrEmpty(InputDir) ||
+                IsInputConvertEnabled && string.IsNullOrEmpty(InputConvertDir) ||
+                IsLabelEnabled && string.IsNullOrEmpty(LabelDir) ||
+                IsSynthEnabled && string.IsNullOrEmpty(ModelDir) ||
+                IsSynthEnabled && string.IsNullOrEmpty(SynthDir) ||
+                IsOutputEnabled && string.IsNullOrEmpty(OutputDir)
             )
             {
                 MessageBox.Show(
@@ -376,6 +418,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             try
             {
                 Directory.CreateDirectory(ProjectDir);
+                Directory.CreateDirectory(Path.Combine(ProjectDir, "score"));
+                Directory.CreateDirectory(InputConvertDir);
                 DirectoryInfo labelDir = Directory.CreateDirectory(LabelDir);
                 Directory.CreateDirectory(SynthDir);
                 Directory.CreateDirectory(OutputDir);
@@ -394,6 +438,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 return;
             }
 
+            string inputConvert = Path.Combine(InputConvertDir, $"{ProjectName}.musicxml");
             string labelOutput = Path.Combine(LabelDir, $"mono\\{ProjectName}.lab");
             string neuInputFull = Path.Combine(LabelDir, $"full\\{ProjectName}.lab");
             string neuInputTiming = Path.Combine(LabelDir, $"timing\\{ProjectName}.lab");
@@ -404,8 +449,12 @@ namespace NeutrinoStudio.Shell.Views.Documents
             
             LogHelper.Current.Log(LogType.Warn, "合成：启动");
             LogHelper.Current.Log(LogType.Info, "配置：");
-            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, "musicXMLtoLabel:");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, "Input Convert:");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Input Format: {InputFormat}");
             if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {InputDir}");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {inputConvert}");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, "musicXMLtoLabel:");
+            if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {inputConvert}");
             if (IsLabelEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {labelOutput}");
             if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, "NEUTRINO:");
             if (IsSynthEnabled) LogHelper.Current.Log(LogType.Info, $"Input: {neuInputFull}");
@@ -421,9 +470,13 @@ namespace NeutrinoStudio.Shell.Views.Documents
             if (IsOutputEnabled) LogHelper.Current.Log(LogType.Info, $"Output: {synthOutput}");
             LogHelper.Current.Log(LogType.Warn, "推送到任务序列。");
 
+            if (IsInputConvertEnabled) TaskManager.Current.Push(new InputTask(
+                InputFormat,
+                InputDir,
+                inputConvert));
             if (IsLabelEnabled) TaskManager.Current.Push(new LabelTask(
                 ConfigHelper.Current.NeutrinoDir,
-                InputDir,
+                inputConvert,
                 neuInputFull,
                 labelOutput));
             if (IsSynthEnabled) TaskManager.Current.Push(new SynthTask(
