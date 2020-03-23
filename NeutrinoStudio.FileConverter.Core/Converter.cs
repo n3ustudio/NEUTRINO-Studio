@@ -1092,7 +1092,7 @@ namespace NeutrinoStudio.FileConverter.Core
                     musicXml.Append("</measure>");
                 }
                 musicXml.Append("</part></score-partwise>");
-                File.WriteAllText(filename + ".ust", musicXml.ToString(), Encoding.UTF8);
+                File.WriteAllText(filename, musicXml.ToString(), Encoding.UTF8);
             });
         }
 
