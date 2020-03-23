@@ -20,6 +20,7 @@ using NeuTask;
 using NeutrinoStudio.Core.Tasks;
 using NeutrinoStudio.FileConverter.Core;
 using NeutrinoStudio.Shell.Helpers;
+using NeutrinoStudio.Shell.Views.Docks;
 using YDock.Interface;
 using Path = System.IO.Path;
 
@@ -392,6 +393,7 @@ namespace NeutrinoStudio.Shell.Views.Documents
                     MessageBoxButton.OK,
                     MessageBoxImage.Error,
                     MessageBoxResult.OK);
+                return;
             }
 
             string labelOutput = Path.Combine(LabelDir, $"mono\\{ProjectName}.lab");
@@ -440,6 +442,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
                 neuOutputMgc,
                 neuOutputBap,
                 synthOutput));
+
+            TaskView.Current.DockControl.Show();
 
         }
 
