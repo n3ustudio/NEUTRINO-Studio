@@ -11,8 +11,9 @@
              Background="{DynamicResource ThemeBrushKey}"
              Foreground="White"
              SnapsToDevicePixels="True"
+             Name="RootElement"
              d:DesignHeight="720" d:DesignWidth="1280">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" DataContext="{Binding ElementName=RootElement}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>

@@ -33,15 +33,13 @@ namespace NeutrinoStudio.Shell.Views.Documents
         public ProjectView()
         {
             InitializeComponent();
-
-            DataContext = this;
         }
 
         public static ProjectView Current = new ProjectView();
 
         #region DataContext
 
-        private InputFormat _inputFormat = InputFormat.Undefined;
+        private InputFormat _inputFormat = InputFormat.MusicXml;
 
         public InputFormat InputFormat
         {
