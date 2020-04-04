@@ -36,6 +36,7 @@ namespace NeutrinoStudio.FileConverter.Core
 
         public void Import(List<string> fileNames)
         {
+            throw new NotImplementedException("Do not use this import method. Check file extensions or use switch cases instead.");
             Files = fileNames.ToList();
             InputFormat format = InputFormat.Undefined;
             string extension = Path.GetExtension(fileNames.First());
@@ -91,7 +92,7 @@ namespace NeutrinoStudio.FileConverter.Core
                     return;
 
                 case InputFormat.Vpr:
-                    ImportVpr(Files);
+                    ImportVpr(Files, "");
                     return;
             }
         }
@@ -339,17 +340,17 @@ namespace NeutrinoStudio.FileConverter.Core
             throw new NeutrinoStudioFileConverterFileException("The vsqx is invalid or empty.");
         }
 
-        public void ImportVpr(List<string> fileNames)
+        public void ImportVpr(List<string> fileNames, string tempDir)
         {
             if (fileNames.Count != 1)
                 throw new NeutrinoStudioFileConverterOperationException("Cannot Import more than one vpr files.");
-            const string tempDirectory = "temp/";
-            if (Directory.Exists(tempDirectory))
+            if (Directory.Exists(tempDir))
             {
-                Directory.Delete(tempDirectory, true);
+                Directory.Delete(tempDir, true);
             }
+            Directory.CreateDirectory(tempDir);
 
-            string copiedVprTempFileName = tempDirectory + Path.GetFileNameWithoutExtension(fileNames.First()) + ".zip";
+            string copiedVprTempFileName = Path.Combine(tempDir, Path.GetFileNameWithoutExtension(fileNames.First()) + ".zip");
             File.Copy(fileNames.First(), copiedVprTempFileName);
             string unzippedDirectory = ZipUtil.Unzip(copiedVprTempFileName);
             string jsonFileName = Path.Combine(unzippedDirectory, "Project", "sequence.json");
@@ -427,9 +428,9 @@ namespace NeutrinoStudio.FileConverter.Core
                 }
             }
 
-            if (Directory.Exists(tempDirectory))
+            if (Directory.Exists(tempDir))
             {
-                Directory.Delete(tempDirectory, true);
+                Directory.Delete(tempDir, true);
             }
 
             if (TrackList.Count <= 0)

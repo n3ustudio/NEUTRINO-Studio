@@ -471,7 +471,8 @@ namespace NeutrinoStudio.Shell.Views.Documents
             if (IsInputConvertEnabled) TaskManager.Current.Push(new InputTask(
                 InputFormat,
                 InputDir,
-                inputConvert));
+                inputConvert,
+                Path.Combine(ProjectDir, "temp")));
             if (IsLabelEnabled) TaskManager.Current.Push(new LabelTask(
                 ConfigHelper.Current.NeutrinoDir,
                 inputConvert,

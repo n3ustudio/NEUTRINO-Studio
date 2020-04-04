@@ -25,17 +25,19 @@ namespace NeutrinoStudio.FileConverter.Tasks
         /// <param name="format">The input format.</param>
         /// <param name="inputDir">The input file.</param>
         /// <param name="outputDir">The output file.</param>
+        /// <param name="tempDir">The temporary directory.</param>
         public InputTask(
             InputFormat format,
             string inputDir,
-            string outputDir)
+            string outputDir,
+            string tempDir)
         {
 
             _coreTask = new BackgroundWorker();
             _coreTask.DoWork += (sender, e) =>
             {
                 BackgroundWorker bw = sender as BackgroundWorker;
-                CoreAction(bw, format, inputDir, outputDir);
+                CoreAction(bw, format, inputDir, outputDir, tempDir);
                 if (bw != null && bw.CancellationPending) e.Cancel = true;
             };
 
@@ -85,7 +87,8 @@ namespace NeutrinoStudio.FileConverter.Tasks
             BackgroundWorker bw,
             InputFormat format,
             string inputDir,
-            string outputDir)
+            string outputDir,
+            string tempDir)
         {
             Converter converter = new Converter();
             switch (format)
@@ -104,7 +107,7 @@ namespace NeutrinoStudio.FileConverter.Tasks
                     converter.ImportVsq4(new List<string> { inputDir });
                     break;
                 case InputFormat.Vpr:
-                    converter.ImportVpr(new List<string> { inputDir });
+                    converter.ImportVpr(new List<string> { inputDir }, tempDir);
                     break;
                 case InputFormat.Ust:
                     converter.ImportUst(new List<string> { inputDir });
