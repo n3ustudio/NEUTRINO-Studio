@@ -1121,7 +1121,7 @@ namespace NeutrinoStudio.FileConverter.Core
 
         public void ExportMusicXml(string filename)
         {
-            string scorePrefix = $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.1 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\"><score-partwise version=\"3.1\"><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>{DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part>";
+            string scorePrefix = $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.1 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\"><score-partwise version=\"3.1\"><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>{DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part-list><score-part id=\"P1\"><part-name>MusicXML Part</part-name></score-part></part-list><part id=\"P1\">";
             string measureSuffix = "</measure>";
             string scoreSuffix = "</part></score-partwise>";
 
