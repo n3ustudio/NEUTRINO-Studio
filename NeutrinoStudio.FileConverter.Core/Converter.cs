@@ -1129,7 +1129,7 @@ namespace NeutrinoStudio.FileConverter.Core
             string tempoResult = "";
             foreach (Tempo tempo in TempoList)
                 if (tempo.PosTick == 0)
-                    tempoResult = tempo.Bpm.ToString("F2");
+                    tempoResult = tempo.Bpm.ToString();
 
             string measurePrefix = $"<measure number=\"measureCount\"><direction><sound tempo=\"{tempoResult}\"/></direction><attributes><key><fifths>0</fifths></key><clef><sign>G</sign><line>2</line></clef><divisions>480</divisions><time><beats>{TimeSigList[0].Nume}</beats><beat-type>{TimeSigList[0].Denomi}</beat-type></time></attributes>";
 
