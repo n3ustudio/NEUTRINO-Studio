@@ -10,22 +10,17 @@ using System.Threading.Tasks;
 
 namespace NeutrinoStudio.Shell.Helpers
 {
+
     /// <summary>
     /// Config Helper.
     /// </summary>
     public static class ConfigHelper
     {
 
-        private static Config _current = OpenConfig();
-
         /// <summary>
         /// The current config.
         /// </summary>
-        public static Config Current
-        {
-            get => _current;
-            set => _current = value;
-        }
+        public static Config Current { get; set; } = OpenConfig();
 
         public static string UserDataFolder = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
@@ -73,13 +68,10 @@ namespace NeutrinoStudio.Shell.Helpers
     public class Config
     {
 
-        private string _neutrinoDir = null;
+        public string NeutrinoDir { get; set; }
 
-        public string NeutrinoDir
-        {
-            get => _neutrinoDir;
-            set => _neutrinoDir = value;
-        }
+        public string ModelDir { get; set; }
 
     }
+
 }

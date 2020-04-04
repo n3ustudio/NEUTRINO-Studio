@@ -65,14 +65,12 @@ namespace NeutrinoStudio.Shell.Views.Documents
             }
         }
 
-        private string _modelDir = "";
-
         public string ModelDir
         {
-            get => _modelDir;
+            get => ConfigHelper.Current.ModelDir;
             set
             {
-                _modelDir = value;
+                ConfigHelper.Current.ModelDir = value;
                 OnPropertyChanged();
             }
         }
