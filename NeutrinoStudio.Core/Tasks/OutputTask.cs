@@ -31,7 +31,7 @@ namespace NeutrinoStudio.Core.Tasks
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    Arguments = $" {f0InputDir} {mgcInPutDir} {bapInputDir} -o {outputFile} -t",
+                    Arguments = $" \"{f0InputDir}\" \"{mgcInPutDir}\" \"{bapInputDir}\" -o \"{outputFile}\" -t",
                     CreateNoWindow = true,
                     StandardOutputEncoding = Encoding.UTF8,
                     WorkingDirectory = workingDir,

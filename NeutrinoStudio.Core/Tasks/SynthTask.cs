@@ -35,7 +35,7 @@ namespace NeutrinoStudio.Core.Tasks
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    Arguments = $" {fullInputDir} {timingOutputDir} {f0OutputDir} {mgcOutPutDir} {bapOutputDir} {modelDir}\\ -t",
+                    Arguments = $" \"{fullInputDir}\" \"{timingOutputDir}\" \"{f0OutputDir}\" \"{mgcOutPutDir}\" \"{bapOutputDir}\" \"{modelDir}\\\" -t",
                     CreateNoWindow = true,
                     StandardOutputEncoding = Encoding.UTF8,
                     WorkingDirectory = workingDir,

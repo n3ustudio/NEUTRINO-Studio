@@ -27,7 +27,7 @@ namespace NeutrinoStudio.Core.Tasks
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    Arguments = $" {inputDir} {fullOutputDir} {monoOutputDir}",
+                    Arguments = $" \"{inputDir}\" \"{fullOutputDir}\" \"{monoOutputDir}\"",
                     CreateNoWindow = true,
                     StandardOutputEncoding = Encoding.UTF8,
                     WorkingDirectory = workingDir,
