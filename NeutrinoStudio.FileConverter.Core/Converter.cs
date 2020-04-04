@@ -1129,7 +1129,7 @@ namespace NeutrinoStudio.FileConverter.Core
                 if (tempo.PosTick == 0)
                     tempoResult = tempo.Bpm.ToString("F2");
 
-            string measurePrefix = $"<measure><direction><sound tempo=\"${tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>4</beats><beat-type>4</beat-type></time></attributes>";
+            string measurePrefix = $"<measure><direction><sound tempo=\"${tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>{TimeSigList[0].Nume}</beats><beat-type>{TimeSigList[0].Denomi}</beat-type></time></attributes>";
 
             StringBuilder musicXml = new StringBuilder();
             musicXml.Append(scorePrefix);
@@ -1140,28 +1140,51 @@ namespace NeutrinoStudio.FileConverter.Core
                 int measure = 0;
                 foreach (Note thisNote in track.NoteList)
                 {
+
+                    if (measure >= 1920)
+                    {
+                        musicXml.Append(measureSuffix);
+                        musicXml.Append(measurePrefix);
+                        measure = 0;
+                    }
+
                     if (pos < thisNote.NoteTimeOn)
+                    {
+                        int duration = thisNote.NoteTimeOn - pos;
+                        while (duration > 1920)
+                        {
+                            musicXml.Append(
+                                "<note><rest/><duration>1920</duration><type>whole</type><voice>1</voice></note>");
+                            musicXml.Append(measureSuffix);
+                            musicXml.Append(measurePrefix);
+                            duration -= 1920;
+                        }
                         musicXml.Append(
-                            $"<note><rest/><duration>{thisNote.NoteTimeOn - pos}</duration><type>whole</type><voice>1</voice></note>");
+                            $"<note><rest/><duration>{duration}</duration><type>whole</type><voice>1</voice></note>");
+                        measure += duration;
+                    }
+
+                    if (measure >= 1920)
+                    {
+                        musicXml.Append(measureSuffix);
+                        musicXml.Append(measurePrefix);
+                        measure = 0;
+                    }
 
                     string step = Constant.KeyList[thisNote.NoteKey / Constant.KeyForOneOctave];
                     int octave = thisNote.NoteKey / Constant.KeyForOneOctave - 1;
                     int alter = Constant.AlterList[thisNote.NoteKey / Constant.KeyForOneOctave];
                     musicXml.Append(
                         $"<note><pitch><step>{step}</step><octave>{octave}</octave><alter>{alter}</alter></pitch><duration>{thisNote.NoteLength}</duration><type>whole</type><voice>1</voice><staff>1</staff><lyric default-y=\"-77\"><text>{thisNote.NoteLyric}</text></lyric></note>");
+                    measure += thisNote.NoteLength;
                     pos = thisNote.NoteTimeOff;
 
-                    if (measure == 4)
-                    {
-                        musicXml.Append(measureSuffix);
-                        musicXml.Append(measurePrefix);
-                        measure = 0;
-                    }
-                    else measure++;
                 }
 
+                musicXml.Append(measureSuffix);
+                musicXml.Append(measurePrefix);
                 musicXml.Append(
-                    "<note><rest/><duration>480</duration><voice>1</voice></note>");
+                    "<note><rest/><duration>1920</duration><voice>1</voice></note>");
                 musicXml.Append(measureSuffix);
 
             }
