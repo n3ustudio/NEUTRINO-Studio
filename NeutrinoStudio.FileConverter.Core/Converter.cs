@@ -1172,9 +1172,9 @@ namespace NeutrinoStudio.FileConverter.Core
                         measure = 0;
                     }
 
-                    string step = Constant.KeyList[thisNote.NoteKey / Constant.KeyForOneOctave];
+                    string step = Constant.KeyList[thisNote.NoteKey % Constant.KeyForOneOctave];
                     int octave = thisNote.NoteKey / Constant.KeyForOneOctave - 1;
-                    int alter = Constant.AlterList[thisNote.NoteKey / Constant.KeyForOneOctave];
+                    int alter = Constant.AlterList[thisNote.NoteKey % Constant.KeyForOneOctave];
                     musicXml.Append(
                         $"<note><pitch><step>{step}</step><octave>{octave}</octave><alter>{alter}</alter></pitch><duration>{thisNote.NoteLength}</duration><type>whole</type><voice>1</voice><staff>1</staff><lyric default-y=\"-77\"><text>{thisNote.NoteLyric}</text></lyric></note>");
                     measure += thisNote.NoteLength;
