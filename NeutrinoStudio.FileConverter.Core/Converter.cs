@@ -1122,6 +1122,7 @@ namespace NeutrinoStudio.FileConverter.Core
         public void ExportMusicXml(string filename)
         {
             string scorePrefix = $"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.1 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\"><score-partwise version=\"3.1\"><identification><encoding><software>NEUTRINO Studio - NeutrinoStudio.FileConverter.Core {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}</software><encoding-date>{DateTime.Now:yyyy-MM-dd}</encoding-date></encoding></identification><part-list><score-part id=\"P1\"><part-name>MusicXML Part</part-name></score-part></part-list><part id=\"P1\">";
+            int measureCount = 0;
             string measureSuffix = "</measure>";
             string scoreSuffix = "</part></score-partwise>";
 
@@ -1130,13 +1131,13 @@ namespace NeutrinoStudio.FileConverter.Core
                 if (tempo.PosTick == 0)
                     tempoResult = tempo.Bpm.ToString("F2");
 
-            string measurePrefix = $"<measure><direction><sound tempo=\"{tempoResult}\"/></direction><attributes><divisions>480</divisions><time><beats>{TimeSigList[0].Nume}</beats><beat-type>{TimeSigList[0].Denomi}</beat-type></time></attributes>";
+            string measurePrefix = $"<measure number=\"measureCount\"><direction><sound tempo=\"{tempoResult}\"/></direction><attributes><key><fifths>0</fifths></key><clef><sign>G</sign><line>2</line></clef><divisions>480</divisions><time><beats>{TimeSigList[0].Nume}</beats><beat-type>{TimeSigList[0].Denomi}</beat-type></time></attributes>";
 
             StringBuilder musicXml = new StringBuilder();
             musicXml.Append(scorePrefix);
             foreach (Track track in TrackList)
             {
-                musicXml.Append(measurePrefix);
+                musicXml.Append(measurePrefix.Replace("measureCount", (++measureCount).ToString()));
                 int pos = 0;
                 int measure = 0;
                 foreach (Note thisNote in track.NoteList)
@@ -1145,7 +1146,7 @@ namespace NeutrinoStudio.FileConverter.Core
                     if (measure >= 1920)
                     {
                         musicXml.Append(measureSuffix);
-                        musicXml.Append(measurePrefix);
+                        musicXml.Append(measurePrefix.Replace("measureCount", (++measureCount).ToString()));
                         measure = 0;
                     }
 
@@ -1157,7 +1158,7 @@ namespace NeutrinoStudio.FileConverter.Core
                             musicXml.Append(
                                 "<note><rest/><duration>1920</duration><type>whole</type><voice>1</voice></note>");
                             musicXml.Append(measureSuffix);
-                            musicXml.Append(measurePrefix);
+                            musicXml.Append(measurePrefix.Replace("measureCount", (++measureCount).ToString()));
                             duration -= 1920;
                         }
                         musicXml.Append(
@@ -1168,7 +1169,7 @@ namespace NeutrinoStudio.FileConverter.Core
                     if (measure >= 1920)
                     {
                         musicXml.Append(measureSuffix);
-                        musicXml.Append(measurePrefix);
+                        musicXml.Append(measurePrefix.Replace("measureCount", (++measureCount).ToString()));
                         measure = 0;
                     }
 
@@ -1183,7 +1184,7 @@ namespace NeutrinoStudio.FileConverter.Core
                 }
 
                 musicXml.Append(measureSuffix);
-                musicXml.Append(measurePrefix);
+                musicXml.Append(measurePrefix.Replace("measureCount", (++measureCount).ToString()));
                 musicXml.Append(
                     "<note><rest/><duration>1920</duration><voice>1</voice></note>");
                 musicXml.Append(measureSuffix);
