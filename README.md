@@ -21,15 +21,29 @@
 
 ![ScreenShot2](https://github.com/n3ustudio/NEUTRINO-Studio/raw/master/Assets/ScreenShot2.png)
 
-**NEW: Now Support Custom F0(PIT) Curve!**
-
 ## ⚠ WORKING IN PROGRESS ⚠
 
 This project is currently working in progress. Contributions are welcome. If you have any questions or ideas, feel free to [create a new issue](https://github.com/n3ustudio/NEUTRINO-Studio/issues/new).
 
 ## 🌟 Features
 
-(Working In Progress)
+### Key Features
+
+View [Projects](https://github.com/n3ustudio/NEUTRINO-Studio/projects) to see details.
+
+- [x] **MusicXML/Vsq/Vsqx/Vpr/Ust/Ccs Format Support**
+
+- [x] **F0/PIT Curve Editor**
+
+- [ ] NEUTRINO Project Format Support (WIP)
+
+### UI Features
+
+- Visual Studio Dark Theme
+
+- Dockable Window
+
+- Background Task/Process Manager
 
 ## 👉 Install & Usage
 
