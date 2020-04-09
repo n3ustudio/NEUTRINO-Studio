@@ -1,12 +1,12 @@
 [submodule "MetroRadiance"]
 	path = MetroRadiance
-	url = git@github.com:HeavyWork/MetroRadiance.git
+	url = https://github.com/HeavyWork/MetroRadiance.git
 [submodule "YDock"]
 	path = YDock
-	url = git@github.com:HeavyWork/YDock.git
+	url = https://github.com/HeavyWork/YDock.git
 [submodule "NeuTask"]
 	path = NeuTask
-	url = git@github.com:HeavyWork/NeuTask.git
+	url = https://github.com/HeavyWork/NeuTask.git
 [submodule "World.NET"]
 	path = World.NET
 	url = https://github.com/n3ustudio/World.NET.git
@@ -15,7 +15,7 @@
 	url = https://github.com/n3ustudio/World.UI.git
 [submodule "Scrosser"]
 	path = Scrosser
-	url = git@github.com:HeavyWork/Scrosser.git
+	url = https://github.com/HeavyWork/Scrosser.git
 [submodule "Musiqual"]
 	path = Musiqual
 	url = https://github.com/n3ustudio/Musiqual.git
