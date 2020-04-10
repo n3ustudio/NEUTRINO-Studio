@@ -50,7 +50,7 @@ namespace NeutrinoStudio.Shell
 
             CommandBindings.Add(new CommandBinding(
                 UICommands.ExitApp,
-                (o, args) => Application.Current.Shutdown(0),
+                (o, args) => Close(),
                 (o, args) => args.CanExecute = true));
 
             CommandBindings.Add(new CommandBinding(
